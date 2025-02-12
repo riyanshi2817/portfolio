@@ -16,15 +16,19 @@
         <br>
         <input type="number" id="num2" placeholder="Enter the second number">
         <br> 
-        <select id = "operator">
-            <!-- <option value="">Pick operator</option> -->
+       <!-- <select id = "operator">
+            <option value="">Pick operator</option>
             <option value ="+">Addition</option>
             <option value ="-">Subtraction</option>
             <option value ="*">Multiplication</option>
             <option  value ="/">Division</option>
-        </select> 
-        <br>
-        <input type="number" id="result" placeholder = "result" readonly>
+        </select>-->
+        
+            <input type="radio" name="operator" value="+" > Addition<br>
+            <input type="radio" name="operator" value="-"> Subtraction<br>
+            <input type="radio" name="operator" value="*"> Multiplication<br>
+            <input type="radio" name="operator" value="/"> Division<br>
+        <output type="number" id="result"  readonly>
     </form>
 </body>
 </html>
