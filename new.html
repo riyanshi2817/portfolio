@@ -1,13 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link
+    <title>PRACTICE</title>
 </head>
-<body>
-    <
-    
+
+<body bgcolor="pink">
+    <header>
+        <h3 align="center">HTML TAGS</h3>
+        <h5 align="center"> Welcome to my practice of html tags </h5>
+    </header>
+    <p><strong>HEY....</strong>
+        <em>its me <u>Riyanshi Joshi</em></u> i am currently using all tags that i learnt in html<br>
+        almost used tags of first part now using strike through thinking something for this after that i will try to use
+        structural and layout <s>attribute</s> tags
+    </p>
+    <nav>
+        <i>Using navigation tag and list</i>
+        <ul type="circle">
+            <li>
+                <a href="https://meet.google.com/landing" target=_blank>
+                    google meet
+                </a>
+            </li>
+            <li>
+                <a href="https://www.youtube.com/" target=_blank>
+                    you tube
+                </a>
+            </li>
+            <li>
+                <a href="https://www.jiocinema.com/" target=_blank>
+                    jio cinema
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <form>
+        <fieldset>
+            <legend>using fieldset and legend and making a form and table inside it</legend>
+            <table border="10">
+                <thead>
+                    <tr>
+                        <th colspan="2"> HTML TAG </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>inline tag</td>
+                        <td>span tag</td>
+                    </tr>
+                </tbody>
+            </table>
+        </fieldset>
+        <fieldset>
+            <legend align="center">Practice form</legend>
+            <fieldset>
+                <table border="1">
+                    <legend>Personal information</legend>
+                    <tr>
+                        <td><label for="name">Name:</label></td>
+                        <td><input type="text" id="name" name="name" required placeholder="Enter Your Name" autofocus>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="phone_number">Contact Number:</label></td>
+                        <td><input type="tel" id="phone_number" name="phone_number" placeholder="Enter Your Number">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>DOB:</label></td>
+                        <td><input type="date"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Date Time :</label></td>
+                        <td><input type="datetime-local" </td>
+                    </tr>
+                    <tr>
+                        <td><label>Search:</label></td>
+                        <td><input type="search"></td>
+                    </tr>
+                </table>
+            </fieldset>
+            <fieldset>
+                <legend>Rating</legend>
+                <table border="1">
+                    <tr>
+                        <td><label>Range:</label></td>
+                        <td><input type="range" step="5" min="0" max="100"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="check">Check</label></td>
+                        <td><input type="checkbox" name="check">India<br>
+                            <input type="checkbox" name="check">England<br>
+                            <input type="checkbox" name="check">Australia<br>
+                            <input type="checkbox" name="check">New Zealand
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="drop">Radio</label></td>
+                        <td>
+                            <input type="radio" name="drop">India<br>
+                            <input type="radio" name="drop">England<br>
+                            <input type="radio" name="drop">Australia<br>
+                            <input type="radio" name="drop">New Zealand
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="select">Select</label></td>
+                        <td>
+                            <select id="select">
+                                <option value="India">India
+                                <option value="England">England
+                                <option value="Australia">Australia
+                                <option value="New Zealand">New Zealand
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+        </fieldset>
+    </form>
+    <img src = "./india-map-2019.jpg" usemap="#Mymap" height= "500" width ="500" alt = "map">
+    <map name = "Mymap">
+        <area target="_blank" title="Rajasthan" href="https://www.go2india.in/upimg/4904.jpg" coords="86,166,35" shape="circle">
+        <area target="_blank" title="Madhya Pradesh" href="https://th.bing.com/th?id=OIP.hhL_psl-F3DLGzfRZZsQGgHaFc&w=291&h=214&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" coords="115,190,182,246" shape="rect">
+        <area target="_blank" title=" Maharashtra" href="https://th.bing.com/th?id=OIP.-JL4bDvXLTHZUkg4TmVz9QHaFz&w=282&h=221&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" coords="71,247,138,303" shape="rect">
+    </map>
 </body>
+
 </html>
