@@ -1,33 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body bgcolor="skyblue">
-    <h2 align = "center">calculator</h2>
+    <h2 align="center">Calculator</h2>
     <form oninput="result.value = eval(num1.value + operator.value + num2.value)">
         <label>Number 1 :</label>
         <input type="number" id="num1" placeholder="Enter the first number">
         <br>
         <label>Number 2 :</label>
-        <br>
         <input type="number" id="num2" placeholder="Enter the second number">
-        <br> 
-        <select id = "operator">
+        <br>
+        <select id="operator">
             <!--<option value="">Pick operator</option>-->
-            <option value ="+">Addition</option>
-            <option value ="-">Subtraction</option>
-            <option value ="*">Multiplication</option>
-            <option  value ="/">Division</option>
+            < <option value="+">Addition</option>
+                <option value="-">Subtraction</option>
+                <option value="*">Multiplication</option>
+                <option value="/">Division</option>
         </select>
-        
-          <!--  <input type="radio" name="operator" value="+" > Addition<br>
-            <input type="radio" name="operator" value="-"> Subtraction<br>
-            <input type="radio" name="operator" value="*"> Multiplication<br>
-            <input type="radio" name="operator" value="/"> Division<br>-->
-        <output type="number" id="result"  readonly>
+        <br>
+        <input type="radio" name="operator" value="+"> Addition<br>
+        <input type="radio" name="operator" value="-"> Subtraction<br>
+        <input type="radio" name="operator" value="*"> Multiplication<br>
+        <input type="radio" name="operator" value="/"> Division<br>
+        <output type="number" id="result" readonly>
     </form>
 </body>
+
 </html>

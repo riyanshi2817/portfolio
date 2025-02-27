@@ -1,0 +1,44 @@
+h1 {
+    padding: 50px 20px 30px 60px;
+    border: 10px outset red;
+    background-color: black;
+    color: white;
+    height: 100px;
+    width: 100px;
+}
+
+p {
+    border: 10px outset red;
+    background-color: black;
+    color: white;
+    height: 100px;
+    width: 100px;
+}
+
+button {
+    border: 10px outset red;
+    background-color: black;
+    color: white;
+    height: 100px;
+    width: 100px;
+}
+
+span {
+
+    border: 10px outset red;
+    background-color: black;
+    color: white;
+    height: 100px;
+    width: 100px;
+}
+
+div {
+    padding:  10px;
+    margin: 10px;
+    border: 2px outset red;
+    background-color: black;
+    color: white;
+    height: 100px;
+    width: 100px;
+    color: red;
+}

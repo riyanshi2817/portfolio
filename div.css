@@ -1,0 +1,48 @@
+.navbar {
+    background-color: red;
+    padding: 10px;
+    text-align: center;
+    border : 2px solid yellow;
+}
+.nav-item {
+    color: black;
+    font-size: 18px;
+    margin: 0px 15px;
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px 15px;
+    transition: 0.3s;
+    border : 2px solid green;
+}
+.nav-item:hover {
+    background-color: yellow;
+    border-radius: 5px;
+}
+
+.nav-link {
+    background: pink;
+    margin: 20px;
+    border: 2px solid black;
+    padding: 10px;
+    color: blue;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+}
+.nav-link:hover {
+    background: yellow;
+    color: red;
+}
+.nav-link:focus {
+    border: 2px solid blue;
+}
+
+a:visited {
+    color: purple;
+}
+
+.navbardown{
+    height: 28px;
+    border : 2px solid black;
+    padding : 20px;
+}
