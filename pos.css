@@ -1,0 +1,31 @@
+
+.max{
+    background-color: blueviolet;
+    display: block;
+    text-align: center;
+}
+.min{
+    background-color: brown;
+    display: inline;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: underline;
+}
+.parent{
+    background-color: red;
+    display: block;
+    font-size: 2rem;
+}
+.child{
+background-color: aqua;
+display: inline;
+font-size: medium;
+}
+.unit{
+background-color: blue;
+display: inline-block;
+padding:10px;
+}
+.unit2{
+background-color: darkslategray;
+display: inline-block;
+}

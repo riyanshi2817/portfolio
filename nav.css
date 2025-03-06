@@ -1,0 +1,13 @@
+*{
+    background-color: aquamarine;
+}
+.navbar{
+    display: flex;
+    background-color: grey;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: xx-large;
+    font-weight: 900;
+    font-stretch: extra-condensed;
+    padding: 10px;
+    justify-content: space-evenly;
+}

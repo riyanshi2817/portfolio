@@ -1,0 +1,24 @@
+*{
+    padding: 0px;
+    margin: px;
+}
+.box{
+    height: 90vh;
+    width: 90vw;
+    border: 2px solid black;
+}
+#parent{
+    margin:10px;
+    padding: 10px;
+    border:10px solid black;
+    height: 200px;
+    width: 200px;
+}
+#child{
+    height: 80%;
+    width: 50%;
+    margin:10px;
+    padding: 10px;
+    border:10px solid red;
+    font-size: 3rem;
+}

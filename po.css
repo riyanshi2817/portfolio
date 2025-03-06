@@ -1,0 +1,80 @@
+*{
+    background-color: #172936;
+    margin:0px;
+    padding:0px;
+}
+.whole{
+    display:flex;
+    flex-direction:row;
+    color: white;
+    background-color: #253644;
+}
+.left{
+    display: flex;
+    flex-direction: column;
+    background-color:#172936;
+    width: 350px;
+    padding: 10px 10px 10px 10px;
+    margin: 10px 10px 10px 10px;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: large;
+}
+.right{
+    display: flex;
+    flex-direction: column;
+    background-color:#253644;
+    width: 650px;
+    padding: 10px 10px 10px 10px;
+    margin: 10px 10px 10px 10px;
+}
+.aboutme{
+    display: flex;
+    flex-direction: column;
+    background-color: #172936;
+    width: 630px;
+    padding: 10px 10px 10px 10px;
+    margin: 10px 10px 10px 10px;
+}
+.doing{
+    display:flex;
+    flex-direction: row;
+}
+.alldsa{
+    display: flex;
+    flex-direction: column;
+    background-color: #172936;
+    padding: 10px 10px 10px 10px;
+    margin: 10px 10px 10px 10px;
+}
+.alldev{
+    display: flex;
+    flex-direction: column;
+    background-color: #172936;   
+    padding: 10px 10px 10px 10px;
+    margin: 10px 10px 10px 10px;
+}
+.whole_mail{
+    display:flex;
+    flex-direction: row;
+}
+.ph{
+    display:flex;
+    flex-direction: row;
+}
+.bd{
+    display:flex;
+    flex-direction: row;
+}
+.lo{
+    display:flex;
+    flex-direction: row;
+}
+#mmm{
+    display: flex;
+    font-family:
+    font-size: ;
+}
+.about{
+    background-color: #253644;
+}

@@ -1,136 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .b_container{
+        * {
+            background-color: aquamarine;
+        }
+
+        .navbar {
+            display: flex;
+            background-color: grey;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: xx-large;
+            font-weight: 900;
+            font-stretch: extra-condensed;
+            padding: 10px;
+            justify-content: space-evenly;
+        }
+
+        .b_container {
             display: flex;
             background-color: aqua;
-            height : 454px;
+            height: 454px;
             width: 1076px;
             border: 1px solid black;
             flex-direction: column;
         }
-        .b1_container{
+
+        .b1_container {
             display: flex;
             background-color: blue;
             border: 1px solid black;
-            margin: 10px ;
+            margin: 10px;
             height: 90px;
-            width : 1056px;
+            width: 1056px;
         }
-        .b2_container{
+
+        .b2_container {
             display: flex;
             background-color: palevioletred;
             border: 1px solid black;
-            margin: 10px ;
+            margin: 10px;
             height: 200px;
-            width : 500px;
+            width: 1056px;
         }
-        .b3_container{
+
+        .b3_container {
             display: flex;
             background-color: slateblue;
             border: 1px solid black;
-            margin: 10px ;
+            margin: 10px;
             height: 90px;
-            width : 1056px;
+            width: 1056px;
         }
-        .b4_container{
+
+        .b4_container {
             display: flex;
             background-color: palevioletred;
             border: 1px solid black;
-            margin: 10px ;
+            margin: 10px;
             height: 100px;
-            width : 250px;
+            width: 250px;
         }
-        .b5_container{
+
+        .b5_container {
             display: flex;
             background-color: palevioletred;
             border: 1px solid black;
-            margin: 10px ;
+            margin: 10px;
             height: 100px;
-            width : 250px;
+            width: 250px;
         }
-        .b11_container{
+
+        .b11_container {
             display: flex;
-            height:76px;
+            height: 76px;
             width: 334px;
             background-color: bisque;
             border: 2px solid black;
             margin: 5px;
         }
-        .b12_container{
+
+        .b12_container {
             display: flex;
-            height:76px;
+            height: 76px;
             width: 334px;
             background-color: bisque;
             border: 2px solid black;
             margin: 5px;
         }
-        .b13_container{
+
+        .b13_container {
             display: flex;
-            height:76px;
+            height: 76px;
             width: 334px;
             background-color: bisque;
             border: 2px solid black;
             margin: 5px;
         }
-        .b121_container{
+
+        .b121_container {
             display: flex;
-            height:56px;
+            height: 56px;
             width: 161px;
-           background-color: rgb(240, 44, 142);
+            background-color: rgb(240, 44, 142);
             border: 4px solid red;
             margin: 5px;
             margin-right: 0px;
         }
-        .b122_container{
+
+        .b122_container {
             display: flex;
-            height:56px;
+            height: 56px;
             width: 161px;
             background-color: rgb(240, 44, 142);
             border: 4px solid red;
             margin: 5px;
             margin-left: 0px;
         }
-        .b31_container{
+
+        .b31_container {
             display: flex;
-            height:76px;
-            width: 334px;
-            background-color: rgb(10, 10, 165);
-            border: 2px solid black;
-            margin: 5px;
-        }
-        .b32_container{
-            display: flex;
-            height:76px;
-            width: 200px;
-            background-color: beige;
-            border: 2px solid black;
-            margin: 5px;
-        }
-        .b33_container{
-            display: flex;
-            height:76px;
-            width: 200px;
-            background-color:beige;
-            border: 2px solid black;
-            margin: 5px;
-        }
-        .b34_container{
-            display: flex;
-            height:76px;
+            height: 76px;
             width: 334px;
             background-color: rgb(10, 10, 165);
             border: 2px solid black;
             margin: 5px;
         }
 
+        .b32_container {
+            display: flex;
+            height: 76px;
+            width: 200px;
+            background-color: beige;
+            border: 2px solid black;
+            margin: 5px;
+        }
+
+        .b33_container {
+            display: flex;
+            height: 76px;
+            width: 200px;
+            background-color: beige;
+            border: 2px solid black;
+            margin: 5px;
+        }
+
+        .b34_container {
+            display: flex;
+            height: 76px;
+            width: 334px;
+            background-color: rgb(10, 10, 165);
+            border: 2px solid black;
+            margin: 5px;
+        }
+
+        .b2_container {
+
+            display: flex;
+            justify-content: space-evenly;
+            padding: 10px 0px;
+        }
+
+        .left {
+            background-color: red;
+            width: 500px;
+            height: 100%;
+        }
+
+        .right {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 500px;
+            height: 100%;
+        }
+
+        .inner-right {
+            background-color: red;
+            width: 500px;
+            height: 93px;
+        }
     </style>
 </head>
+
 <body>
+    <div class="navbar">
+        <div class="home">
+            <a href="home.html" class="nav-link" id="nav1" ">Home</a>
+        </div>
+        <div class=" about">
+                <a href="about.html" class="nav-link" id="nav2">About</a>
+        </div>
+        <div class="contact">
+            <a href="contact.html" class="nav-link" id="nav3">Contact</a>
+        </div>
+        <div class="flexbox">
+            <a href="flexbox2.html" class="nav-link" id="nav4">Flex Box</a>
+        </div>
+    </div>
+    <h1>Flex Box</h1>
     <div class="b_container">
         <div class="b1_container">
             <div class="b11_container"></div>
@@ -140,8 +212,14 @@
             </div>
             <div class="b13_container"></div>
         </div>
-        
-        <div class="b2_container"></div>
+
+        <div class="b2_container">
+            <div class="left"></div>
+            <div class="right">
+                <div class="inner-right"></div>
+                <div class="inner-right"></div>
+            </div>
+        </div>
         <div class="b3_container">
             <div class="b31_container"></div>
             <div class="b32_container"></div>
@@ -149,10 +227,7 @@
             <div class="b34_container"></div>
 
         </div>
-        <!--<div class="side_box">
-            <div class="b5_container" id="box5">box5</div>
-            <div class="b4_container" id="box4">box4</div>
-        </div>
     </div>
 </body>
+
 </html>

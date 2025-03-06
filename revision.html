@@ -5,22 +5,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-        <link rel="stylesheet" href="style2.css">
-        <style>
-        div{
-        background-color: black;
-        color: white;
-        height: 100px;
-        width: 100px;
-        font-size: large;
-        font-weight: bolder;
+    <style>
+        .big_b{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        .big_ib{
+            display: flex;
+            background-color: aqua;
+            height: 50px;
+            width: 50px;
+            padding:20px 20px 20px 20px;
+        }
+        .big_irb{
+            display: flex;
+            background-color: red;
+            height: 50px;
+            width: 50px;
+            padding:20px 20px 20px 20px;
+        }
+        .small_irb{
+            display: flex;
+            background-color:purple;
+            height: 50px;
+            width: 50px;
+            padding:20px 20px 20px 20px;
+        }
+        .down{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        .down_i{
+            display: flex;
+            background-color: green;
+            height: 50px;
+            width: 50px;
+            padding:20px 20px 20px 20px;
+        }
+        .down_ir{
+            display: flex;
+            background-color: yellow;
+            height: 50px;
+            width: 50px;
+            padding: 20px 20px 20px 20px;
         }
     </style>
-    
 </head>
 
 <body>
-    <div style="background-color: black ; color: white ; height: 100px; width: 100px;"> box </div>
+    <div class="big_b">
+        <div class="big_ib">5</div>
+        <div class="big_irb" >2</div>
+        <div class="small_irb">3</div>
+    </div>
+    <div class="down">
+        <div class="down_i">4</div>
+        <div class="down_ir">1</div>
+    </div>
 </body>
 
 </html>

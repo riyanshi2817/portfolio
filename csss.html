@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body{
-            
+        body {
+
             background-color: blueviolet;
         }
+
         .navbar {
             display: flex;
             justify-content: space-evenly;
@@ -30,69 +31,89 @@
             font-family: Arial, Helvetica, sans-serif;
             font-weight: 900;
         }
-        #name{
+
+        #name {
             width: 297px;
             display: flex;
             justify-content: center;
             border: 2px solid black;
         }
-        #about_me{
-            display:flex;
+
+        #about_me {
+            display: flex;
+            justify-content: center;
+            border: 2px solid black;
+            align-items: stretch;
+        }
+
+        #specification {
+            display: flex;
             justify-content: center;
             border: 2px solid black;
         }
-        #specification{
-            display:flex;
-            justify-content: center;
-            border: 2px solid black;
+
+        .whole {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            width: 500px;
         }
-        .whole{
+        .main{
             display:flex;
-            justify-content: center ;
-            align-items: center;
-            align-items: ;
+            flex-direction: row;
+        }
+        .pic{
+            margin:5px;
         }
     </style>
 </head>
 
-<body >
+<body>
     <div class="navbar">
         <a href="https://www.hotstar.com/in/home" class="nav-link" id="nav1" target="_blank">Home</a>
         <a href="https://chatgpt.com/" class="nav-link" id="nav2" target="_blank">About</a>
         <a href="https://meet.google.com/landing" class="nav-link" id="nav3" target="_blank">Services</a>
         <a href="https://www.youtube.com/" class="nav-link" id="nav4" target="_blank">Contact</a>
     </div>
-    <div>
-        <img src="img1.jpg" alt="myimg" height="400" width="">
+    <div class="main">
+        <div class="pic">
+            <img src="img1.jpg" alt="myimg" height="400" width="">
+        </div>
+        <div class="whole">
+            <div class="riyu" id="specification">
+                <h3>About me...</h3>
+            </div>
+            <div class="riyu" id="about_me">
+                <p>I am a passionate and dedicated student currently in my second year, Section D, pursuing a course
+                    that
+                    includes subjects like Discrete Structures and Data Structures and Algorithms (DSA). From the start
+                    of my
+                    academic journey, I have shown a keen interest in logical reasoning, problem-solving, and technical
+                    subjects.
+
+                    As I progressed, I developed a preference for structured learning, where I grasp complex concepts
+                    through
+                    detailed theoretical explanations and practical examples. This approach has helped me excel in my
+                    studies,
+                    particularly in subjects like Technical Communication and DSA. I am highly focused on improving my
+                    understanding of algorithms and data structures, as I recognize their significance in real-world
+                    applications and technical problem-solving.
+
+                    To maintain productivity, I actively avoid distractions like reels and unnecessary diversions,
+                    ensuring that
+                    I stay committed to my academic goals. My ability to learn efficiently, adapt to new challenges, and
+                    maintain a disciplined study routine makes me a strong candidate for technical roles in the future.
+
+                    I am constantly striving for growth and looking forward to applying my knowledge in real-world
+                    scenarios,
+                    whether through projects, internships, or further academic pursuits.
+
+                    if anyone is reading seriously the source is provided by ~<cite>CHATGPT</cite></p>
+            </div>
+        </div>
     </div>
     <div class="riyu" id="name">
         <h1>Riyanshi Joshi</h1>
-    </div>
-    <div class="whole">
-        <div class="riyu" id="specification">
-            <h3>About me...</h3>
-        </div>
-        <div class="riyu" id="about_me">
-            <p>I am a passionate and dedicated student currently in my second year, Section D, pursuing a course that
-                includes subjects like Discrete Structures and Data Structures and Algorithms (DSA). From the start of my
-                academic journey, I have shown a keen interest in logical reasoning, problem-solving, and technical
-                subjects.
-    
-                As I progressed, I developed a preference for structured learning, where I grasp complex concepts through
-                detailed theoretical explanations and practical examples. This approach has helped me excel in my studies,
-                particularly in subjects like Technical Communication and DSA. I am highly focused on improving my
-                understanding of algorithms and data structures, as I recognize their significance in real-world
-                applications and technical problem-solving.
-    
-                To maintain productivity, I actively avoid distractions like reels and unnecessary diversions, ensuring that
-                I stay committed to my academic goals. My ability to learn efficiently, adapt to new challenges, and
-                maintain a disciplined study routine makes me a strong candidate for technical roles in the future.
-    
-                I am constantly striving for growth and looking forward to applying my knowledge in real-world scenarios,
-                whether through projects, internships, or further academic pursuits.
-    
-                if anyone is reading seriously the source is provided by ~<cite>CHATGPT</cite></p>
-        </div>
     </div>
 </body>
 
