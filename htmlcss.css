@@ -1,0 +1,64 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.top {
+    display: flex;
+    flex-direction: column;
+    background-color: #172937;
+    width: 1059px;
+    color: white;
+}
+
+.sidebar {
+    display: flex;
+    justify-content: space-between;
+}
+.bar {
+    display: flex;
+    padding: 5px;
+    margin: 5px;
+    justify-content: flex-end;
+}
+.circleimage {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+}
+#or{
+    color: orangered;
+}
+.image{
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px 20px 20px 20px;
+}
+.skills{
+    margin: 5px;
+    padding: 5px;
+}
+.progress{
+    margin: 5px;
+    padding: 5px;
+}
+.projects{
+    margin: 5px;
+    padding: 5px;
+}
+.education{
+    margin: 5px;
+    padding: 5px;
+}
+.contact{
+    margin: 5px;
+    padding: 5px;
+}
+.resume{
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid orangered;
+}

@@ -1,0 +1,110 @@
+*{
+    margin:0px;
+    padding:px;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+}
+.one{
+    background-color: #202225;
+    height: 100vh;
+    width: 14vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.two{
+    display: flex;
+    flex-direction: column;
+    background-color: #2F3136;
+    height: 100vh;
+    width: 50vw;
+    color: white;
+}
+.three{
+    background-color: #36393F;
+    height: 100vh;
+    width: 150vw;
+    color: white;
+}
+.four{
+    background-color: #2F3136;
+    height: 100vh;
+    width: 50vw;
+}
+.dis_select{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px 10px 10px 10px;
+}
+.discord_logo{
+    display: flex;
+    margin: 3px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    /* border: 3px solid white; */
+}
+.line{
+    width: 50px;
+}
+.text_{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 40px 10px 10px 10px;
+    color: #858688 ;
+}
+.general{
+    margin: 0px 10px 10px 10px;
+    color: #858688 ;
+}
+.channel{
+    margin: 0px 10px 10px 10px;
+    color: #858688 ;
+}
+.welcome{
+    margin: 0px 10px 10px 10px;
+    color: #858688 ;
+}
+.p_image{
+    display: flex;
+    margin: 3px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+}
+.profile{
+    background-color:#3b3e44 ;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-self: flex-end;
+}
+.welcome2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.full{
+    display: flex;
+    flex-direction: row;
+}
+.hello{
+    display: flex;
+    flex-direction: row;
+}
+.abc{
+    margin: 15px;
+}
+.three_welcome{
+
+}
+.hello{
+
+}

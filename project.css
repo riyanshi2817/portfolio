@@ -1,0 +1,276 @@
+*{
+    margin: 0px;
+    padding:0
+}
+body{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.container1{
+    background-color: #172937;
+    color: whitesmoke;
+}
+.navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.skill{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.skills{
+    display: flex;
+    margin: 0px 5px;
+}
+.resume{
+    border: 1px solid orangered;
+    border-radius: 7%;
+}
+.circleimage{
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    border-radius:50%;
+    border:3px solid white;
+}
+.image{
+    display:flex;
+    justify-content:flex-end;
+    margin: 20px 20px 20px 20px;
+}
+.assignment{
+    display: flex; 
+}
+.container2{
+    width:100vw;
+    
+    background: linear-gradient(to left, rgb(247, 194, 175)50%, rgb(198, 198, 245)50%)!important;
+}
+.my_skills{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+#progresss{
+    color: orangered;
+}
+.detail{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+.progress{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+.project{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+.education{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+.button{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    background-color:;
+}
+.explorin_college{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.explorin_year{
+    display: flex;
+    flex-direction: column;
+    margin: 25px 85px 30px 65px;
+}
+.college_year{
+    display: flex;
+    flex-direction: column;
+    margin: 25px 85px 30px 30px;
+}
+.explorin{
+    display: flex;
+    font-size: larger;
+    font-weight: bolder;
+}
+.year{
+    color: orangered;
+}
+.btech{
+    font-size: medium;
+    font-weight: 100;
+}
+.college{
+    display: flex;
+    font-size: larger;
+    font-weight: bolder;
+}
+.schoolname{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.school_name{
+    display: flex;
+    flex-direction: column;
+    margin: 25px 85px 30px 65px;
+}
+.school_name2{
+    display: flex;
+    flex-direction: column;
+    margin: 25px 137px 30px 30px;
+}
+.school{
+    display: flex;
+    font-size: larger;
+    font-weight: bolder;
+}
+.contact.section{
+    display: flex;
+    flex-direction: column;
+}
+.profile_detail{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.contact{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.detail_p{
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+}
+.container8{
+    background-color:#172937;
+    color: white;
+}
+.contact{
+    color: orangered;
+    padding:20px;
+}
+.linkedln{
+    border:1px solid orangered;
+    border-radius: 5%;
+}
+.video{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.video1{
+    display:flex;
+    flex-direction: column;
+    /* border:1px solid black; */
+    /* border-radius: 50%; */
+    padding: 10px;
+}
+.video2{
+    display:flex;
+    flex-direction: column;
+    /* border:1px solid black; */
+    padding:10px;
+}
+.video3{
+    display:flex;
+    flex-direction: column;
+    /* border:1px solid black; */
+    padding:10px;
+}
+.skillset1{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-evenly;
+    /* border: 1px solid black; */
+}
+.skillset2{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-evenly;
+}
+.skillset{
+     border: 1px solid black;
+     background-color: aliceblue;
+     width: 80vw;
+}
+.vide{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width:300px;
+    background-color: gray;
+    color:orangered;
+    font-size: medium;
+    font-weight: 900;
+}
+.text1{
+    display:flex;
+    flex-direction: column;
+    padding:10px;
+    background-color: antiquewhite;
+}
+.day{
+    font-size: medium;
+    color: rgb(73, 73, 73);
+}
+.topic{ 
+    font-size: large;
+    font-weight: bolder;
+}
+.coach{
+    color: rgb(73, 73, 73);
+}
+.projects{
+    display:flex;
+    flex-direction: row;
+}
+.project1{
+    display: flex;
+    flex-direction: column;
+}
+.img_disc{
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    justify-content: space-between;
+}
+.assignment{
+    /* font-size: larger; */
+    font-weight: bolder;
+    font-size: xx-large;
+    display: flex;
+    padding: 20px;
+}
+#explorin_acad{
+    color: orangered;
+}
+.second_line{
+    display: flex;
+    font-size: larger;
+    font-weight: 900;
+    padding: 20px;
+}
+.third_line{
+    width: 900px;
+    padding:30px;
+}
