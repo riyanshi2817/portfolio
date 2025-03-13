@@ -28,6 +28,7 @@
     height: 100vh;
     width: 150vw;
     color: white;
+    overflow: scroll;
 }
 .four{
     background-color: #2F3136;
@@ -122,6 +123,7 @@
 .main_profile{
     display: flex;
     flex-direction: row;
+    margin-left: 5px;
 }
 .name{
     margin: 5px ;
@@ -142,4 +144,53 @@
     font-size: smaller;
     margin:5px;
     color: grey;
+}
+.msg{  
+    margin-left: 52px;
+}
+.ms{
+    margin-bottom: 5px;
+}
+.line_date{
+    display: flex;
+    flex-direction: row;
+}
+.line3{
+    color: grey;
+    margin-left: 30px;
+    margin-top: 12px;
+    width: 300px;
+}
+.line33{
+    color: grey;
+    margin-top: 12px;
+    width: 300px;
+}
+.ei{
+    display: flex;
+    margin: 3px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    justify-content: center;
+    align-items: center;
+    background-color: orangered;
+    /* border: 3px solid white; */
+}
+.main_profile2{
+    display: flex;
+    flex-direction: row;
+    margin-left: 5px;
+}
+#number{
+    color: rgb(141, 140, 140);
+}
+.msginput{
+    background-color: #40444b;
+    height: 50px;
+    width: 725px;
+    border-radius: 5px;
+    margin-left: 20px;
+    margin-top: 15px;
 }
