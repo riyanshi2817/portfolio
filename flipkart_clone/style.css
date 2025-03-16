@@ -110,6 +110,7 @@ body{
 }
 .seller_one{
     display: flex;
+    min-width: 130px;
     align-items: center;
     margin-left: 10px;
 }
