@@ -97,7 +97,7 @@ body{
      /* background-color: blue;  */
 }
 .nav-cart{
-    margin-left:15px ;
+    margin-left:15px;
 }
 .nav-cart{
     display: flex;
@@ -109,7 +109,6 @@ body{
 }
 .nav-seller{
     display: flex;
-
 }
 .seller_one{
     display: flex;
@@ -169,9 +168,6 @@ body{
     right:25px;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
-}
-.flight-options{
-
 }
 .flight-img{
     position: relative;
@@ -258,9 +254,6 @@ body{
 }
 .musical img{
     margin-top: 45px;
-}
-.arrow-box{
-    
 }
 .yoga img{
     margin-top: 60px;
