@@ -3,7 +3,6 @@
     padding: 0px;
     font-family: Arial;
     border: border-box;
-    /* overflow: auto;  */
     scrollbar-width: none;
     -ms-overflow-style: none;
 }
@@ -17,12 +16,10 @@ body{
 .nav-bar {
     height: 70px;
     width: 100%;
+    gap: 50px;
     display: flex;
-     /* justify-content: center;  */
     align-items: center;
     background-color: white;
-    justify-content: space-evenly;
-    /* border: 1px solid black; */
     position: fixed;
     top: 0px;
     z-index: 10;
@@ -33,7 +30,6 @@ body{
     margin-left: 20px;
 }
 .logo{
-    /* background-image: url("./assets/flipkart_logo.svg"); */
     background-size: cover;
     height: 50px;
     width: 100px;
@@ -51,16 +47,17 @@ body{
     background-color:#F0F5FF;
     border-radius: 10px;
     overflow: hidden;
+    width: 100%;
+    min-width: 300px;
 }
 .search-bar{
     height: 40px;
-    width:550px ;
+    width: 100%;
     font-size:1rem ;
     background-color: #F0F5FF;
-    border: 0px solid transparent;
+    border: none;
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
-    
 }
 .search-bar:focus-visible{
     outline: none;
@@ -97,7 +94,7 @@ body{
      /* background-color: blue;  */
 }
 .nav-cart{
-    margin-left:15px;
+    margin-left:15px ;
 }
 .nav-cart{
     display: flex;
@@ -109,6 +106,7 @@ body{
 }
 .nav-seller{
     display: flex;
+
 }
 .seller_one{
     display: flex;
@@ -125,9 +123,8 @@ body{
     display: flex;
     justify-content: space-evenly;
     background-color: white;
-    margin: 10px 25px 15px 25px;
+    margin: 85px 25px 15px 25px;
     height: 125px;
-    margin-top: 80px;
 }
 .text{
     margin-top: 10px;
@@ -147,48 +144,51 @@ body{
 }
 /*box3*/
 .arrow-left{
-    top:60px;
-    left:25px;
+    left: 0px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-    
 }
 .arrow-container{
     height:90px;
     width:40px;
     background-color:white;
-    /* border:1px  solid black; */
     position: absolute;
+    top: calc(50% - 45px);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .arrow-right{
-    top:60px;
-    right:25px;
+    right: 0px;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
 }
+
 .flight-img{
     position: relative;
     overflow:hidden;
+    margin: 0 25px;
 }
 .flight-img img{
-    max-width: 1316px;
     object-fit: cover;
-    margin: 0px 25px 15px 25px;
-    /* border: 1px solid black; */
     cursor: pointer;
+    width: 100%;
+    height: 269px;
 }
 /*box4*/
 .box_four{
     display: flex;
+    gap: 15px;
+    margin: 15px 25px;
+    margin-top: 10px;
+    height: 300px;
+    overflow: hidden;
+    /* align-items: center; */
 }
 .electronics-items{
     background-color: white;
     height: 300px;
-    width: 1110px;
-    margin-left: 25px;
+    width: 100%;
 }
 .electronic-item{
     display: flex;
@@ -206,13 +206,11 @@ body{
 }
 .code_image img{
     height: 300px;
-    object-fit: cover; 
     overflow: hidden;
-    margin: 0px 25px 15px 20px; ;
 }
 .item-price{
     font-weight: 600;
-    font-size:15px ;
+    font-size: 15px ;
     margin-top: 10px;
 }
 .ec-item img{
@@ -264,21 +262,18 @@ body{
 .shoes img{
     margin-top: 55px;
 }
-/**/
+/*box6*/
 .essentials{
     display: flex;
-    gap:10px;
+    gap:15px;
     justify-content: center;
-    padding-left: 25px;
+    /* padding-left: 25px; */
+    margin: 0px 25px;
 }
 .es_box1{
     background-color: white;
     width: 515px;
     height: 620px;
-    /* margin: 10px 10px 10px 25px ; */
-}
-.box3{
-    margin-right: 25px;
 }
 .esboxes{
     display: flex;
@@ -294,7 +289,6 @@ body{
     margin-top: 15px;
     overflow: hidden;
     border-radius: 5px;
-    /* justify-content: space-evenly; */
     align-items: center;
 }
 .esboxes1 img{
@@ -304,7 +298,6 @@ body{
 }
 .esbox1_text{
     font-size: 25px;
-    /* border:1px solid black; */
     padding:10px 2px 10px 15px; 
     font-weight: 700;
 }
@@ -324,7 +317,7 @@ body{
     margin-top: 15px;
 }
 
-/**foter**/
+/*foter*/
 .foot{
     background-color: #F5F5F5;
     margin-top: 15px;
@@ -435,5 +428,4 @@ body{
 }
 .last_line{
     color: #878787;
-    
 }
