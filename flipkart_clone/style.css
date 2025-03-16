@@ -335,97 +335,91 @@ body{
 .foot p{
     color:#878787 ;
 }
-.black_foot{
+/*footercss*/
+footer {
     background-color: #212121;
-    height: 400px;
+    height: 350px;
+    width: 100%;
 }
-.about1{
+
+footer .top {
+    height: 285px;
+    color: white;
     display: flex;
-    flex-direction: column;
-    margin-top: 30px;
+    align-items: center;
 }
-.about1 p{
-    color: #878787;
-    font-size: 14px;
-    font-weight: 600;
-    margin: 20px  0px 10px 45px;
+
+footer .top hr {
+    height: 200px;
 }
-.about1 a{
-    color: #FFFFFF;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    margin: 5px 0px 0px 45px;
-}
-.about{
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-.about2 h4{
-    color: #878787; 
-    font-size: 14px;
-    font-weight: 600;
-    margin: 20px  0px 10px 25px;
-}
-.about2 p{
-    color: #FFFFFF;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    margin: 5px 0px 0px 25px;
-}
-.about2{
-    display: flex;
-    flex-direction: column;
-    margin-top: 30px;
-}
-.social_icons{
-    display: flex;
-    gap: 15px;
-}
-.ig img{
-    height: 18px;
-    width: 18px;
-    margin-top: 3px;
-}
-.social_text{
-    color: #878787; 
-    font-size: 14px;
-    font-weight: 600;
-    margin: 20px  0px 10px 25px;
-}
-.fb{
-    margin-left: 25px;
-}
-.ph{
-    text-decoration: none;
-}
-.last_foot{
+
+footer .top .left {
+    height: 100%;
+    width: calc(100% - 620px + 50px);
     display: flex;
     justify-content: space-evenly;
-    margin-top: 50px;
+    padding-left: 25px;
 }
-.seller{
-    color: white;
-}
-.sec_last{
+
+.footer_left_content {
     display: flex;
-    color: white;
+    flex-direction: column;
+    padding-top: 40px;
+    /* min-width: 230px; */
 }
-.c_circle{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 12px;
-    width: 12px;
-    border-radius: 50%;
-    border: 1px solid white;
-    margin-right: 10px;
+
+.footer_left_content a {
+    color: #FFFFFF;
+    font-size: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
 }
-.seller img{
-    margin-right: 10px;
-}
-.last_line{
+
+.footer_left_content p,
+.footer_right_content h4 {
     color: #878787;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+footer .top .right {
+    height: 100%;
+    width: 620px;
+    display: flex;
+    padding-left: 25px;
+    gap: 10px;
+}
+
+.footer_right_content {
+    display: flex;
+    flex-direction: column;
+    padding-top: 40px;
+    min-width: 270px;
+    font-size: 0.75rem;
+}
+
+footer .bottom {
+    height: 65px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: white;
+}
+
+.social_text {
+    margin: 20px 0 10px 0;
+}
+.social_icons {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-evenly; */
+    
+    /* border: 1px solid; */
+    gap: 15px;
+}
+.ig{
+    height: 20px;
+    width: 20px;
+    padding-bottom: 2px;
 }
