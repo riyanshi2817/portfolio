@@ -326,3 +326,121 @@ body{
     margin: 15px 0px 5px 10px;
     align-self: flex-start;
 }
+
+.es_second{
+    margin-top: 15px;
+}
+
+/**foter**/
+.foot{
+    background-color: #F5F5F5;
+    margin-top: 15px;
+    padding: 10px 30px 10px 25px;
+    color: #878787;
+}
+.foot h2{
+    color: #878787;
+    font-size: 18px;
+}
+.foot h1{
+    color: #878787;
+    font-size: 20px;
+}
+.foot p{
+    color:#878787 ;
+}
+.black_foot{
+    background-color: #212121;
+    height: 400px;
+}
+.about1{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+.about1 p{
+    color: #878787;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 20px  0px 10px 45px;
+}
+.about1 a{
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    margin: 5px 0px 0px 45px;
+}
+.about{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.about2 h4{
+    color: #878787; 
+    font-size: 14px;
+    font-weight: 600;
+    margin: 20px  0px 10px 25px;
+}
+.about2 p{
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    margin: 5px 0px 0px 25px;
+}
+.about2{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+.social_icons{
+    display: flex;
+    gap: 15px;
+}
+.ig img{
+    height: 18px;
+    width: 18px;
+    margin-top: 3px;
+}
+.social_text{
+    color: #878787; 
+    font-size: 14px;
+    font-weight: 600;
+    margin: 20px  0px 10px 25px;
+}
+.fb{
+    margin-left: 25px;
+}
+.ph{
+    text-decoration: none;
+}
+.last_foot{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 50px;
+}
+.seller{
+    color: white;
+}
+.sec_last{
+    display: flex;
+    color: white;
+}
+.c_circle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    border: 1px solid white;
+    margin-right: 10px;
+}
+.seller img{
+    margin-right: 10px;
+}
+.last_line{
+    color: #878787;
+    
+}
