@@ -38,6 +38,7 @@ body{
     background-color: white;
     height: 250px;
     width: 300px;
+    border-radius: 3%;
 }
  .ontology_polkadot{
     display: flex;
@@ -48,17 +49,19 @@ body{
     height:115px;
     width: 300px;
     background-color: white;
+    border-radius: 3%;
 }
 .polkadot{
     height:115px;
     width: 300px;
     background-color: white;
+    border-radius: 3%;
 }
 .avbl{
     height: 250px;
     width: 350px;
     background-color: #0B99FF;
-    
+    border-radius: 3%;
 }
 
 .mnav-bar{
@@ -82,6 +85,7 @@ body{
     margin-left: 25px;
     margin-top: 10px;
     gap: 50px;
+    border-radius: 3%;
 }
 .mainbox{
     display: flex;
@@ -92,4 +96,54 @@ body{
     justify-content: center;
     gap: 10px;
 }
-.staking_offerings
+.stake{
+    color: #A6A9AE;
+}
+
+.stake_asset{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px 20px 15px 20px;
+    color: #A6A9AE;
+}
+.next_claim{
+    display: flex;
+    justify-content: space-evenly;
+    /* margin: 20px 20px 15px 20px; */
+}
+.staking_reward{
+    height: 150px;
+    width: 350px;
+    background-color: white;
+    margin-left: 20px;
+    margin-top: 10px;
+    border-radius: 3%;
+}
+.ONT{
+    color: #6eb3f5;
+}
+.tobe{
+    color: #A6A9AE;
+}
+.time{
+    color: black;
+    font-size: 1.10rem;
+    font-weight: 550;
+    margin-top: 10px;
+}
+.amount{
+    color: black;
+    font-size: 1.10rem;
+    font-weight: 550;
+    height: 25px;
+    width: 130px;
+    border-radius: 3%;
+    padding-left:10px ;
+    background-color:#f7f3f3f8;
+}
+.claim_rewardstext{
+    font-size: large;
+    color: #77B3E2;
+    margin: 10px 20px 20px 20px;
+}
