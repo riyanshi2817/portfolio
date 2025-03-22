@@ -238,3 +238,6 @@ ul a{
     font-size: 0.7rem;
     text-align: center;
 }
+.search-input:focus-visible{
+    outline:none;
+}

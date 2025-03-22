@@ -2,6 +2,7 @@
     margin:0px;
     padding:px;
     box-sizing: border-box;
+    scrollbar-wid:hidden;
 }
 .container{
     display: flex;
