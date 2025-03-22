@@ -67,9 +67,9 @@ body {
 }
 .car1{
     display: flex;
-    margin-left: 90px;
-    gap: 80px;
-    margin-top: 30px;
+    margin-left: 30px;
+    gap: 40px;
+    margin-top: 20px;
 }
 .cardano_text{
     font-size: 1.1rem;
@@ -93,8 +93,27 @@ body {
     gap: 5px;
 }
 .car2 p{
-    color: #A6A9AE;
+    color: #a6a9ae;
     font-weight: 400;
+}
+.on{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    font-size: 1rem;
+    margin-top: 5px;
+}
+.on22{
+    background-color: #e8e9ec;
+    height: 30px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 50px;
+    border-radius: 3%;
+    margin-top: 8px;
+    
 }
 .car4{
     height: 30px;
@@ -132,6 +151,19 @@ body {
     width: 350px;
     background-color: #0B99FF;
     border-radius: 3%;
+}
+.balance_img{
+    display: flex;
+    margin-top: 20px;
+    margin-left: 20px;
+    gap: 20px;
+}
+.balance{
+    color: white;
+}
+.balance p{
+    font-size: 1.4rem;
+    margin-top: 10px;
 }
 
 .mnav-bar {
