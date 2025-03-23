@@ -239,6 +239,7 @@ body {
     flex-direction: column;
     justify-content: center;
     gap: 10px;
+    margin-left: 23px;
 }
 
 .stake {
@@ -287,7 +288,7 @@ body {
     font-size: 1.10rem;
     font-weight: 550;
     height: 25px;
-    width: 130px;
+    width: 160px;
     border-radius: 3%;
     padding-left: 10px;
     background-color: #f7f3f3f8;
