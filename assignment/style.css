@@ -438,3 +438,19 @@ body {
     margin-top: 20px;
 
 }
+.graph img{
+    height:350px;
+    max-width:350px;
+    margin-left: 20px;
+    margin-top: 17px;
+    border-radius: 5%;
+}
+.car1 img{
+    border: border-box;
+    height: 40px;
+    max-width: 50px;
+    margin-top: -5px;
+    margin-left: 5px;
+    border-radius: 20%;
+    background-color: #6eb3f5;
+}
