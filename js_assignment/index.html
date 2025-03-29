@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        body{
+            /* background:linear-gradient(); */
+            background-color: rgb(250, 123, 77);
+            height:100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+         .conatiner{
+             /* border: 1px solid black; */
+             border-radius: 5%;
+             background-color: white;
+             height: 200px;
+             width: 350px;
+             display: flex;
+             flex-direction: column;
+             /* gap: 30px; */
+         }
+        .heading{
+            color: orangered;
+            margin-top: 40px;
+            margin-left: 70px;
+        }
+        .conatiner p{
+            margin-left: 30px;
+            margin-top: 20px;
+        }
+        .conatiner button{
+            background-color: rgb(250, 90, 32);
+            border: none;
+            width: 80px;
+            height: 40px;
+            border-radius: 10%;
+            color: white;
+            margin-left: 120px;
+            margin-top: 10px;
+            cursor:pointer;
+            text-decoration: none;
+        }
+        #but{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="conatiner">
+            <h2 class="heading">Welcome to Page 1</h2>
+
+            <p>Click the button below to go to the next page</p>
+
+            <button id="but">
+                Next-></Next->
+            </button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            border: border-box;
+        }
+        body{
+            /* background:linear-gradient(); */
+            background-color: rgb(177, 33, 177);
+            height:100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+         .conatiner{
+             /* border: 1px solid black; */
+             border-radius: 5%;
+             background-color:rgb(130, 130, 204);
+             height: 200px;
+             width: 350px;
+             display: flex;
+             flex-direction: column;
+             /* gap: 30px; */
+         }
+        .heading{
+            color: white;
+            margin-top: 40px;
+            margin-left: 70px;
+        }
+        .conatiner p{
+            margin-left: 30px;
+            margin-top: 20px;
+            color: white;
+        }
+        .conatiner button{
+            background-color: rgb(93, 206, 93);
+            border: none;
+            width: 80px;
+            height: 40px;
+            border-radius: 10%;
+            color:white;
+            margin-left: 120px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        #but{
+            text-decoration: none;
+        }
+        .page{
+            margin-left:160px ;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="conatiner">
+            <h2 class="heading">Welcome to Page 2</h2>
+
+            <p>Click the button below to go to the previous</p>
+            <div class="page">page</div>
+
+            <button id="but">
+                <-Previous
+            </button>
+    </div>
+</body>
+</html>
