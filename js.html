@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: gray;
+        }
+
+        #hero {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 100px;
+        }
+
+        .container {
+            border: 5px solid rgb(128, 0, 128);
+            width: 80%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            justify-content: center;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .card {
+            height: 100px;
+            border: 3px solid transparent;
+            width: 100px;
+            border-radius: 5px;
+        }
+
+        .changeBtn {
+            padding: 10px;
+            margin: 15px;
+            border-radius: 10px;
+            outline: none;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="hero">
+        <div class="container">
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+        </div>
+    </section>
+    <script>
+        const cards = document.querySelectorAll('.card')
+
+        const getRandomColor = () => {
+            return Math.floor(Math.random() * 256)
+        }
+        const changeColor = () => {
+            cards.forEach(ele => {
+                ele.style.backgroundColor = `rgb(${ getRandomColor()}, ${getRandomColor()}, ${getRandomColor()})`
+                ele.style.borderColor = `rgb(${getRandomColor()}, ${getRandomColor()}, ${getRandomColor()})`
+            });
+        }
+        setInterval(() => {
+            changeColor()
+        }, 1000);
+        changeColor()
+    </script>
+</body>
+
+</html>

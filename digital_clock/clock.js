@@ -23,4 +23,3 @@ setInterval(() => {
     min.innerHTML = currentTime.getMinutes().toString().padStart(2,"0");
     sec.innerHTML = currentTime.getSeconds().toString().padStart(2,"0");
 }, 1000);
-

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Calculator</title>
+
+    <style>
+        button {
+
+            width: 39.5px;
+
+            height: 30px;
+
+            margin-top: 4px;
+
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+    <h1>Calculator</h1>
+
+    <input class="inputBox" type="text" readonly>
+
+    <br>
+
+    <button class="clr"> AC </button>
+
+    <button class="btn"> ( </button>
+
+    <button class="btn"> ) </button>
+
+    <button class="del"> &LeftArrow; </button>
+
+    <br>
+
+    <button class="btn">7</button>
+
+    <button class="btn">8</button>
+
+    <button class="btn">9</button>
+
+    <button class="btn">*</button>
+
+    <br>
+
+    <button class="btn">4</button>
+
+    <button class="btn">5</button>
+
+    <button class="btn">6</button>
+
+    <button class="btn">/</button>
+
+    <br>
+
+    <button class="btn">1</button>
+
+    <button class="btn">2</button>
+
+    <button class="btn">3</button>
+
+    <button class="btn">-</button>
+
+    <br>
+
+    <button class="btn">.</button>
+
+    <button class="btn">0</button>
+
+    <button class="btn">+</button>
+
+    <button class="equals"> = </button>
+
+
+    <script>
+
+        const inputBox = document.querySelector('.inputBox')
+
+        const btns = document.querySelectorAll('.btn')
+
+        const equals = document.querySelector('.equals')
+
+        const clrBtn = document.querySelector('.clr')
+
+        const delBtn = document.querySelector('.del')
+
+
+        btns.forEach((btn) => {
+
+            btn.addEventListener('click', () => {
+
+                inputBox.value += btn.textContent
+
+            })
+
+        })
+
+
+        equals.addEventListener('click', () => {
+
+            inputBox.value = eval(inputBox.value)
+
+        })
+
+
+        clrBtn.addEventListener('click', () => {
+
+            inputBox.value = ''
+
+        })
+
+
+        delBtn.addEventListener('click', () => {
+
+            inputBox.value = inputBox.value.slice(0, -1)
+
+        })
+
+    </script>
+
+</body>
+
+
+</html>
