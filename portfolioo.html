@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Riyanshi Joshi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #172936;
+            color: #ffffff;
+            padding: 20px;
+        }
+
+        .bigdiv {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .toggle-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            padding: 10px 15px;
+            background-color: #253644;
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .whole {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .left, .right {
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .left {
+            background-color: #253644;
+            width: 100%;
+            max-width: 350px;
+            flex: 1;
+        }
+
+        .left img {
+            border-radius: 50%;
+        }
+
+        .left h3 {
+            margin: 10px 0;
+        }
+
+        .left .info {
+            margin: 15px 0;
+            text-align: left;
+        }
+
+        .info i {
+            margin-right: 10px;
+        }
+
+        .right {
+            background-color: #253644;
+            flex: 2;
+            width: 100%;
+        }
+
+        .aboutme, .doing {
+            background-color: #172936;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .doing-items {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .alldsa, .alldev {
+            background-color: #253644;
+            flex: 1;
+            min-width: 260px;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        hr {
+            margin: 10px 0;
+            border: 1px solid #444;
+        }
+
+        @media (max-width: 768px) {
+            .whole {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="toggle-btn" onclick="toggleTheme()">Toggle Mode</button>
+
+    <div class="bigdiv">
+        <div class="whole">
+
+            <!-- LEFT SECTION -->
+            <div class="left">
+                <div class="image">
+                    <img src="img2.jpg" alt="profile" width="120" height="120"/>
+                </div>
+                <h3>Riyanshi Joshi</h3>
+                <p>Student - II Year (2023-27)</p>
+                <hr>
+                <div class="info"><i class="fas fa-envelope"></i> riyanshijoshi@gmail.com</div>
+                <div class="info"><i class="fas fa-phone"></i> 9876543210</div>
+                <div class="info"><i class="fas fa-birthday-cake"></i> 28th March 2006</div>
+                <div class="info"><i class="fas fa-map-marker-alt"></i> Dehradun</div>
+            </div>
+
+            <!-- RIGHT SECTION -->
+            <div class="right">
+                <div class="aboutme">
+                    <h2>About Me</h2>
+                    <hr>
+                    <p>
+                        I am a passionate and curious second-year student with a strong interest in technology and problem-solving. Always eager to learn, I enjoy exploring new concepts, improving my coding skills, and understanding how things work. My goal is to develop innovative solutions and grow as a skilled professional in the ever-evolving tech industry.
+                    </p>
+                </div>
+
+                <div class="doing">
+                    <h2>What I'm Doing</h2>
+                </div>
+                <div class="doing-items">
+                    <div class="alldsa">
+                        <h3>💻 DSA</h3>
+                        <p>
+                            I am actively strengthening my understanding of Data Structures and Algorithms by solving problems and refining my coding skills. I aim to master DSA and apply these concepts to real-world challenges.
+                        </p>
+                    </div>
+                    <div class="alldev">
+                        <h3>🌐 Web Development</h3>
+                        <p>
+                            I am learning to build dynamic and responsive websites using HTML, CSS, JavaScript, and modern frameworks. I strive to master full-stack development and create efficient web applications.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentBg = getComputedStyle(body).backgroundColor;
+            if (currentBg === "rgb(23, 41, 54)") {
+                body.style.backgroundColor = "#f4f4f4";
+                body.style.color = "#000";
+                document.querySelectorAll(".left, .right, .alldsa, .alldev, .aboutme").forEach(el => {
+                    el.style.backgroundColor = "#ffffff";
+                    el.style.color = "#000";
+                });
+            } else {
+                location.reload(); // Reset to original dark mode
+            }
+        }
+    </script>
+</body>
+</html>
