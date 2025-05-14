@@ -1,4 +1,4 @@
-*{
+/* *{
     margin: 0px;
     padding: 0px;
     border: border-box;
@@ -43,6 +43,6 @@ button{
 }
 .text ul i{
     position: absolute;
-    right: 10px;
+    right: 550px;
     cursor: pointer;
-}
+} */

@@ -1,23 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ToDo App</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 320px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .input {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .input input {
+      flex: 1;
+      padding: 8px;
+      font-size: 16px;
+    }
+
+    .input button {
+      padding: 8px 12px;
+      margin-left: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .text ul {
+      list-style: none;
+      padding: 10px;
+      margin: 8px 0;
+      background: #e0e0e0;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .task-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 1;
+    }
+
+    .task-label span {
+      font-size: 16px;
+    }
+
+    .task-label input[type="checkbox"] {
+      transform: scale(1.2);
+    }
+
+    .completed {
+      text-decoration: line-through;
+      color: #999;
+    }
+
+    .text ul i {
+      color: red;
+      cursor: pointer;
+    }
+  </style>
 </head>
+
 <body>
-    <div class="container">
-        <h1>ToDo List</h1>
-        <div class="input">
-            <input type="text" placeholder="Enter Your Task"  id="inp">
-            <button onclick="Add()" >Add</button>
-        </div>
-        <div class="text">
-        
-        </div>
+  <div class="container">
+    <h1>ToDo List</h1>
+    <div class="input">
+      <input type="text" placeholder="Enter Your Task" id="inp">
+      <button onclick="Add()">Add</button>
     </div>
-    <script src="script.js"></script>
+    <div class="text"></div>
+  </div>
+
+  <script>
+    let inputs = document.getElementById("inp");
+    let text = document.querySelector(".text");
+
+    function Add() {
+      if (inputs.value.trim() === "") {
+        alert("Please enter a task");
+      } else {
+        let newEle = document.createElement("ul");
+
+        newEle.innerHTML = `
+          <label class="task-label">
+            <input type="checkbox" class="check">
+            <span class="task-text">${inputs.value}</span>
+          </label>
+          <i class="fa-solid fa-trash"></i>
+        `;
+
+        text.appendChild(newEle);
+        inputs.value = "";
+
+        let checkbox = newEle.querySelector(".check");
+        let taskText = newEle.querySelector(".task-text");
+        let trashIcon = newEle.querySelector("i");
+
+        checkbox.addEventListener("change", function () {
+          if (checkbox.checked) {
+            taskText.classList.add("completed");
+          } else {
+            taskText.classList.remove("completed");
+          }
+        });
+
+        trashIcon.addEventListener("click", function () {
+          newEle.remove();
+        });
+      }
+    }
+  </script>
 </body>
+
 </html>
