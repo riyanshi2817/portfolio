@@ -2,7 +2,7 @@
     margin:0px;
     padding:px;
     box-sizing: border-box;
-    scrollbar-wid:hidden;
+    scrollbar-width:hidden;
 }
 .container{
     display: flex;
@@ -215,7 +215,7 @@
     width: 50vw;
 }
 
-.status::-webkit-scrollbar {
+.four::-webkit-scrollbar {
     display: none;
 }
 
@@ -231,7 +231,7 @@
     width: 32px;
     height: 32px;
     /* background-color: #74777a; */
-    border-radius: 100px;
+    border-radius: 50px;
     overflow: hidden;
 }
 
@@ -243,7 +243,7 @@
 
 .statusIndicator {
     /* border: 1px solid; */
-    padding-top: 15px;
+    padding-top: 10px;
     font-size: 0.75rem;
     color: #74777a;
     font-weight: 600;
@@ -268,4 +268,8 @@
     background-color: #f84a4b;
     padding-right: 1px;
     padding-bottom: 2px;
+}
+.nav-item{
+    display: flex;
+    flex-direction: row;
 }

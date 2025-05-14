@@ -1,0 +1,316 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #2c2f33;
+    color: white;
+}
+
+/* Container layout */
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Left Sidebar (Servers) */
+.one {
+    width: 70px;
+    background-color: #202225;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+    gap: 10px;
+}
+
+.discord_logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.discord_logo:hover {
+    border-radius: 15px;
+    background-color: #5865F2;
+}
+
+/* Server Line */
+.line {
+    width: 40px;
+    border: none;
+    border-top: 1px solid #4f545c;
+    margin: 10px 0;
+}
+
+/* Middle Sidebar (Channels) */
+.two {
+    width: 240px;
+    background-color: #2f3136;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+}
+
+/* Top Server Select */
+.dis_select {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 10px 0;
+}
+
+.select select {
+    background: #202225;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* Channels */
+.text_ {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #b9bbbe;
+}
+
+.general,
+.channel,
+.welcome {
+    padding: 8px 10px;
+    cursor: pointer;
+    color: #b9bbbe;
+    transition: background-color 0.2s;
+}
+
+.general:hover,
+.channel:hover,
+.welcome:hover {
+    background-color: #40444b;
+    border-radius: 5px;
+}
+
+.welcome2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+}
+
+.full {
+    display: flex;
+    gap: 5px;
+}
+
+.full img {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+/* Profile Area */
+.profile {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: #292b2f;
+    border-radius: 5px;
+}
+
+.p_image {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+.name {
+    flex: 1;
+    font-size: 0.85rem;
+}
+
+#number {
+    font-size: 0.7rem;
+    color: #b9bbbe;
+}
+
+/* Right Panel (Main Chat + Users) */
+.three_four {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #36393f;
+}
+
+/* Top Nav */
+.nav-bar {
+    padding: 10px;
+    background-color: #2f3136;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.hello {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.vr {
+    color: #b9bbbe;
+}
+
+.say_hello {
+    font-weight: normal;
+    color: #b9bbbe;
+}
+
+/* Chat Section */
+.nav-item {
+    display: flex;
+    flex: 1;
+}
+
+.three {
+    flex: 3;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.main_profile,
+.main_profile2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0 0;
+}
+
+.main_profile2 .ei {
+    background-color: #5865F2;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.date {
+    font-size: 0.75rem;
+    color: #b9bbbe;
+}
+
+.msg {
+    padding-left: 42px;
+    margin-bottom: 15px;
+}
+
+.ms {
+    background-color: #40444b;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-top: 5px;
+    display: inline-block;
+}
+
+/* Line Dates */
+.line_date {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #b9bbbe;
+    margin: 20px 0;
+}
+
+.line3 hr,
+.line33 hr {
+    border: none;
+    border-top: 1px solid #4f545c;
+    flex: 1;
+}
+
+/* Message Input */
+.conversor {
+    padding: 10px;
+    background-color: #40444b;
+    position: sticky;
+    bottom: 0;
+}
+
+.msginput {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #2f3136;
+    color: white;
+}
+
+/* Right Panel (Members) */
+.four {
+    width: 240px;
+    background-color: #2f3136;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.statusIndicator {
+    font-size: 0.8rem;
+    color: #b9bbbe;
+    margin: 10px 0;
+}
+
+.member {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.member:hover {
+    background-color: #40444b;
+}
+
+.memberImage img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+.memberInfo {
+    flex: 1;
+    color: white;
+}
+
+.tag {
+    padding: 2px 6px;
+    font-size: 0.7rem;
+    border-radius: 3px;
+    font-weight: bold;
+    color: white;
+}
+
+.tag.bot {
+    background-color: #5865F2;
+}
+
+.tag.adm {
+    background-color: #faa61a;
+}
