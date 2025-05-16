@@ -56,7 +56,7 @@ h3{
 output{
     color: #D86A20;
 }
-.num{
+#{
     color: #D86A20;
     margin-left: 20px;
 }
