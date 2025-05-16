@@ -56,11 +56,11 @@ h3{
 output{
     color: #D86A20;
 }
-#{
+#numcheck{
     color: #D86A20;
     margin-left: 20px;
 }
-.char{
+.charcheck{
     color: #D86A20;
 }
 .label {
