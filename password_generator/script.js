@@ -12,10 +12,9 @@ lim.addEventListener("input" ,()=>{
     lab.textContent = `Length : ${lim.value}`;
 })
 
-
 copybtn.addEventListener("click", () => {
   if (!display.value) generatePassword();
-display.select();
+    display.select();
     display.setSelectionRange(0, 99999); 
     document.execCommand("copy");
     

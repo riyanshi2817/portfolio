@@ -43,6 +43,7 @@ h3{
     border: none;
     outline: none;
     box-shadow: none;
+    cursor: pointer;
 }
 .copy::placeholder{
     color: white;
