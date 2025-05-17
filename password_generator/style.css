@@ -1,10 +1,7 @@
 *{
     margin: 0px;
     padding: 0px;
-    /* border: border-box; */
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
-    /* font-family:Georgia, 'Times New Roman', Times, serif; */
 }
 body{
     background-color: black;
@@ -30,22 +27,22 @@ h3{
      width: 370px;
      height: 30px;
     font-size: large;
-    /* border-top-left-radius: 20%; */
-    /* border-bottom-left-radius: 20%; */
     border-radius: 20px 0 0 20px;
     padding-bottom: 5px;
     border: none;
+    outline: none;
+    box-shadow: none;
 }
 .copy{
     width: 50px;
     font-size: large;
     height: 30px;
-    /* border-top-right-radius: 30%; */
-    /* border-bottom-right-radius: 30%; */
-     border-radius: 0 20px 20px 0; 
+    border-radius: 0 20px 20px 0; 
     background-color: #1E40AF;
     padding-bottom: 5px;
     border: none;
+    outline: none;
+    box-shadow: none;
 }
 .copy::placeholder{
     color: white;
@@ -65,5 +62,4 @@ output{
 }
 .label {
     color: #D86A20;
-    /* margin-left: 5px; */
 }
