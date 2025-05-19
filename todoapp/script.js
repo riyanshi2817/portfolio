@@ -1,11 +1,19 @@
 const write = document.querySelector(".out");
-const display = document.querySelector(".container");
+const display = document.querySelector(".task-list");
 const bt1 = document.querySelector(".btn1");
 const bt2 = document.querySelector(".btn2");
  
 bt1.addEventListener("click", addtask)
 bt2.addEventListener("click" , clearTasks);
 
+window.addEventListener("DOMContentLoaded", loadTasksFromStorage);
+
+function loadTasksFromStorage() {
+    const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    tasks.forEach(taskText => {
+        createTaskElement(taskText);
+    });
+}
 
 function addtask(){
     const task = write.value.trim();
@@ -15,7 +23,17 @@ function addtask(){
         return;
     }
 
-   const taskItem = document.createElement("div");
+     createTaskElement(task); 
+    saveTaskToLocalStorage(task);
+    write.value = "";
+}
+
+function clearTasks(){
+    display.innerHTML = "";
+}
+
+function createTaskElement(task) {
+    const taskItem = document.createElement("div");
     taskItem.className = "task-item";
     taskItem.innerText = task;
 
@@ -28,14 +46,12 @@ function addtask(){
     });
 
     taskItem.appendChild(deleteBtn);
-
     display.appendChild(taskItem);
-
-    write.value = "";
 }
 
-function clearTasks(){
-    display.innerHTML = "";
+function saveTaskToLocalStorage(task) {
+    const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    tasks.push(task);
+    localStorage.setItem("tasks", JSON.stringify(tasks));
 }
-
 
