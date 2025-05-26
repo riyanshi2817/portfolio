@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Minesweeper</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+      background: #f1f1f1;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    #board {
+      display: grid;
+      grid-template-columns: repeat(8, 40px);
+      grid-template-rows: repeat(8, 40px);
+      gap: 2px;
+    }
+
+    .cell {
+      width: 40px;
+      height: 40px;
+      background-color: #ccc;
+      text-align: center;
+      line-height: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .cell.revealed {
+      background-color: #eee;
+      cursor: default;
+    }
+
+    .cell.mine {
+      background-color: red;
+      color: white;
+    }
+
+    .cell.flag {
+      background-color: orange;
+    }
+
+    #reset {
+      margin: 15px;
+      padding: 8px 16px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Minesweeper</h1>
+  <button id="reset">Restart</button>
+  <div id="board"></div>
+
+  <script>
+    const board = document.getElementById("board");
+    const resetButton = document.getElementById("reset");
+    const size = 8;
+    const mineCount = 10;
+    let cells = [];
+
+    function createBoard() {
+      board.innerHTML = "";
+      cells = [];
+
+      // Create cells
+      for (let i = 0; i < size * size; i++) {
+        const cell = document.createElement("div");
+        cell.classList.add("cell");
+        cell.dataset.index = i;
+        board.appendChild(cell);
+        cells.push(cell);
+      }
+
+      // Place mines
+      let mineIndices = new Set();
+      while (mineIndices.size < mineCount) {
+        mineIndices.add(Math.floor(Math.random() * size * size));
+      }
+
+      for (let index of mineIndices) {
+        cells[index].dataset.mine = "true";
+      }
+
+      // Set numbers
+      for (let i = 0; i < cells.length; i++) {
+        if (cells[i].dataset.mine) continue;
+        const neighbors = getNeighbors(i);
+        const count = neighbors.filter(n => cells[n].dataset.mine).length;
+        if (count > 0) cells[i].dataset.count = count;
+      }
+
+      // Add event listeners
+      cells.forEach(cell => {
+        cell.oncontextmenu = e => {
+          e.preventDefault();
+          if (!cell.classList.contains("revealed")) {
+            cell.classList.toggle("flag");
+          }
+        };
+
+        cell.onclick = () => reveal(cell);
+      });
+    }
+
+    function getNeighbors(index) {
+      const neighbors = [];
+      const row = Math.floor(index / size);
+      const col = index % size;
+
+      for (let r = -1; r <= 1; r++) {
+        for (let c = -1; c <= 1; c++) {
+          if (r === 0 && c === 0) continue;
+          const nr = row + r;
+          const nc = col + c;
+          if (nr >= 0 && nr < size && nc >= 0 && nc < size) {
+            neighbors.push(nr * size + nc);
+          }
+        }
+      }
+      return neighbors;
+    }
+
+    function reveal(cell) {
+      if (cell.classList.contains("revealed") || cell.classList.contains("flag")) return;
+
+      const index = parseInt(cell.dataset.index);
+      cell.classList.add("revealed");
+
+      if (cell.dataset.mine) {
+        cell.textContent = "💣";
+        cell.classList.add("mine");
+        alert("Game Over!");
+        revealAllMines();
+        return;
+      }
+
+      const count = cell.dataset.count;
+      if (count) {
+        cell.textContent = count;
+      } else {
+        getNeighbors(index).forEach(i => reveal(cells[i]));
+      }
+    }
+
+    function revealAllMines() {
+      cells.forEach(cell => {
+        if (cell.dataset.mine) {
+          cell.textContent = "💣";
+          cell.classList.add("mine");
+        }
+      });
+    }
+
+    resetButton.onclick = createBoard;
+
+    createBoard(); // Initial call
+  </script>
+</body>
+</html>
