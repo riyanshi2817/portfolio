@@ -5,6 +5,10 @@ let count = document.getElementById('count');
 let inputtext = textarea.value
 let countWords = () => {
     let text = textarea.value.trim();
+    if(text===""){
+        count.innerText = "Please enter some text";
+        return;
+    }
     let words = text.split(/\s+/);
 
     let wordCount = words.filter(word => word !== "").length;
