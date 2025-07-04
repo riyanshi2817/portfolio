@@ -1,0 +1,95 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #023047;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  padding: 30px;
+}
+
+/* Heading */
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+/* Choose buttons */
+#choose {
+  margin-bottom: 20px;
+}
+
+#choose button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #219ebc;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#choose button:hover {
+  background-color: #126782;
+}
+
+/* Game grid */
+#game {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 8px;
+  justify-content: center;
+  margin: 0 auto 20px auto;
+}
+
+.cell {
+  background-color: #8ecae6;
+  color: #023047;
+  font-size: 2.5rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 6px;
+  user-select: none;
+  transition: background 0.2s ease;
+}
+
+.cell:hover {
+  background-color: #61b2d4;
+}
+
+/* Result display */
+.result {
+  font-size: 1.4rem;
+  margin-top: 10px;
+  height: 30px;
+}
+
+/* Restart Button */
+#restartBtn {
+  margin-top: 20px;
+  padding: 10px 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #ffb703;
+  color: #023047;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#restartBtn:hover {
+  background-color: #e09d00;
+}
