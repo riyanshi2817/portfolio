@@ -28,6 +28,8 @@ chooseX.addEventListener("click", () => {
 
     chooseX.disabled = true;
     chooseO.disabled = true;
+
+    document.getElementById('choose').classList.add('hidden');
 });
 
 chooseO.addEventListener("click", () => {
@@ -39,6 +41,8 @@ chooseO.addEventListener("click", () => {
 
     chooseX.disabled = true;
     chooseO.disabled = true;
+
+    document.getElementById('choose').classList.add('hidden');
 });
 
 
@@ -96,4 +100,8 @@ restartbtn.addEventListener("click", () => {
     chooseO.disabled = false;
 
     result.textContent = 'Game reset! Choose X or O to start again.';
+
+    document.getElementById('choose').classList.remove('hidden');
+
 });
+

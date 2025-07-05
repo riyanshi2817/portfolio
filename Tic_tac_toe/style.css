@@ -1,95 +1,96 @@
-/* Reset & Base */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  background-color: #023047;
-  color: white;
   font-family: 'Segoe UI', sans-serif;
   text-align: center;
-  padding: 30px;
+  margin: 0;
+  padding: 0;
+  background: #003049; /* same dark blue background */
 }
 
-/* Heading */
 h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+  margin-top: 30px;
+  font-size: 36px;
+  color: #ffffff;
 }
 
-/* Choose buttons */
 #choose {
-  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+  transition: opacity 0.4s ease;
+  opacity: 1;
 }
 
-#choose button {
+#choose.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+button {
   padding: 10px 20px;
-  margin: 0 10px;
-  font-size: 1rem;
-  font-weight: bold;
-  background-color: #219ebc;
-  border: none;
+  font-size: 16px;
+  background: #007bff;
   color: white;
-  border-radius: 8px;
+  border: none;
+  border-radius: 6px;
   cursor: pointer;
   transition: background 0.3s ease;
 }
 
-#choose button:hover {
-  background-color: #126782;
+button:hover:not(:disabled) {
+  background: #0056b3;
 }
 
-/* Game grid */
+button:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+}
+
 #game {
   display: grid;
   grid-template-columns: repeat(3, 100px);
-  grid-template-rows: repeat(3, 100px);
-  gap: 8px;
+  grid-gap: 12px;
   justify-content: center;
-  margin: 0 auto 20px auto;
+  margin: 0 auto 20px;
 }
 
 .cell {
-  background-color: #8ecae6;
-  color: #023047;
-  font-size: 2.5rem;
-  font-weight: bold;
+  width: 100px;
+  height: 100px;
+  background: #87cefa; /* light blue cells */
+  border: 2px solid #ffffff;
+  font-size: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  border-radius: 6px;
-  user-select: none;
-  transition: background 0.2s ease;
+  transition: background 0.2s;
+  color: #003049;
+  font-weight: bold;
 }
 
 .cell:hover {
-  background-color: #61b2d4;
+  background: #add8e6; /* slightly lighter blue */
 }
 
-/* Result display */
-.result {
-  font-size: 1.4rem;
-  margin-top: 10px;
-  height: 30px;
-}
-
-/* Restart Button */
-#restartBtn {
-  margin-top: 20px;
-  padding: 10px 25px;
-  font-size: 1rem;
+#result {
+  margin: 20px 0;
+  font-size: 18px;
+  color: #ffffff;
   font-weight: bold;
-  background-color: #ffb703;
-  color: #023047;
+}
+
+#restartBtn {
+  padding: 10px 25px;
+  font-size: 16px;
+  background: #ffc107; /* yellow button */
+  color: #003049;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   cursor: pointer;
   transition: background 0.3s ease;
 }
 
 #restartBtn:hover {
-  background-color: #e09d00;
+  background: #e0a800;
 }
