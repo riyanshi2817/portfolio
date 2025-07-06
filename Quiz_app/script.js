@@ -674,7 +674,7 @@ selectbtn.addEventListener("click", () => {
     questionContainer.style.display = "block";
 
     let numberOfQuestions = parseInt(no_of_question.value);
-    let selectedDifficulty = difficulty.value;
+    let selectedDifficulty = difficulty.value.toLowerCase();
 
     let combinedQuestions = [];
 
