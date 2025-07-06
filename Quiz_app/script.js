@@ -684,7 +684,7 @@ selectbtn.addEventListener("click", () => {
         combinedQuestions = [...mediumJavaScriptQuestions];
     } else if (selectedDifficulty === "hard") {
         combinedQuestions = [...hardJavaScriptQuestions];
-    } else if (selectedDifficulty === "mix") {
+    } else if (selectedDifficulty === "mixed") {
         combinedQuestions = [
             ...easyJavaScriptQuestions,
             ...mediumJavaScriptQuestions,
@@ -697,7 +697,6 @@ selectbtn.addEventListener("click", () => {
     selectedQuestions = combinedQuestions.slice(0, numberOfQuestions);
 
     currentQuestionIndex = 0;
-    currentQuestion = selectedQuestions[currentQuestionIndex];
     showQuestion();
     startTimer();
 });
@@ -737,4 +736,49 @@ function showQuestion() {
     });
 
     qinfo.textContent = `Question ${currentQuestionIndex + 1} of ${selectedQuestions.length}`;
+        nextbtn.style.display = "none";
 }
+
+optionButtons.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+        clearInterval(timerInterval);  
+
+        const selectedBtn = e.target;
+        const selectedOption = selectedBtn.textContent;
+        const correctAnswer = selectedQuestions[currentQuestionIndex].correct;
+
+        optionButtons.forEach((button) => button.disabled = true);
+
+        if (selectedOption === correctAnswer) {
+            selectedBtn.style.backgroundColor = "green";
+        } else {
+            selectedBtn.style.backgroundColor = "red";
+
+            optionButtons.forEach((button) => {
+                if (button.textContent === correctAnswer) {
+                    button.style.backgroundColor = "green";
+                }
+            });
+        }
+        nextbtn.style.display = "inline-block";
+    });
+});
+
+nextbtn.addEventListener("click", () => {
+    currentQuestionIndex++;
+
+    if (currentQuestionIndex < selectedQuestions.length) {
+        showQuestion();
+        startTimer();
+    } else {
+        question.textContent = "Quiz Completed!";
+        optionButtons.forEach((btn) => {
+            btn.style.display = "none";
+        });
+        qinfo.textContent = "";
+        nextbtn.style.display = "none";
+        time_left.textContent = "";
+        time_line.style.width = "0%";
+    }
+});
+
