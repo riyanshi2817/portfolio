@@ -1,0 +1,164 @@
+/* ======= RESET AND BASE ======= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #2196f3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* ======= MAIN CONTAINER ======= */
+main {
+  width: 90%;
+  max-width: 500px;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* ======= HIDE BY DEFAULT ======= */
+.selectpage,
+.question-container {
+  display: none;
+}
+
+/* ======= START PAGE ======= */
+.startpage h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.startpage button {
+  padding: 10px 25px;
+  font-size: 16px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.startpage button:hover {
+  background-color: #333;
+}
+
+/* ======= SELECT PAGE ======= */
+.selectpage h2 {
+  margin: 20px 0 10px;
+  font-size: 18px;
+}
+
+.selectpage select {
+  padding: 10px;
+  width: 100%;
+  font-size: 16px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.selectpage button {
+  margin-top: 10px;
+  padding: 10px 25px;
+  font-size: 16px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.selectpage button:hover {
+  background-color: #333;
+}
+
+/* ======= QUESTION PAGE ======= */
+.question-container {
+  display: none;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title h2 {
+  font-size: 20px;
+}
+
+.timer p {
+  margin: 0;
+  font-size: 14px;
+}
+
+#time-left {
+  font-weight: bold;
+}
+
+.time-line {
+  width: 100%;
+  height: 4px;
+  background-color: #ddd;
+  margin: 10px 0;
+}
+
+.question-option {
+  margin: 20px 0;
+}
+
+#question {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.ans-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ans-btn button {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #2196f3;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.ans-btn button:hover {
+  background-color: #e0e0e0;
+}
+
+.info {
+  margin-top: 20px;
+}
+
+#qinfo {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+#nextbtn {
+  padding: 10px 25px;
+  background-color: #2196f3;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#nextbtn:hover {
+  background-color: #0b7dda;
+}

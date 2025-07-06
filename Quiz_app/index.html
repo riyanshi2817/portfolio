@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main>
+        <div class="startpage">
+            <h2>JAVASCRIPT QUIZ APP</h2>
+            <button id="startbtn">START</button>
+        </div>
+
+        <div class="selectpage">
+            <h2>SELECT NUMBER OF QUESTIONS</h2>
+            <select name="" id="no-of-question">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+            </select>
+            <h2>SELECT DIFFICUILTY LEVEL</h2>
+            <select name="" id="difficulty">
+                 <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Hard">Hard</option>
+                <option value="Mixed">Mixed</option>
+            </select>
+            <button id="select">SELECT</button>
+        </div>
+
+        <div class="question-container">
+            <div class="title">
+                <h2>JS QUIZ APP</h2>
+                <div class="timer">
+                    <p>Time Left</p>
+                    <p id="time-left"></p>
+                </div>
+            </div>
+
+            <div class="time-line" id="time-line"></div>
+
+
+            <div class="question-option">
+                <div class="question">
+                    <h2 id="question">what?</h2>
+                    <div class="ans-btn">
+                        <button id="btn1"></button>
+                        <button id="btn2"></button>
+                        <button id="btn3"></button>
+                        <button id="btn4"></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info">
+                <p id="qinfo">Question 1 of 5</p>
+                <button id="nextbtn">NEXT</button>
+            </div>
+        </div>
+
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
