@@ -2,56 +2,61 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Happy Birthday</title>
-    <link rel="stylesheet" href="style.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <div class="container">
-        <div class="startpage">
-            <p>Hey Sidhant, click the button below!</p>
-            <button id="btn1">Click here</button>
-        </div>
-
-        <div class="tareef" style="display: none;">
-            <h1 class="big-title" id="happyLine">🎉 Happy Birthday Sidhant 🎂</h1>
-            <img src="./img1.jpg" alt="image" id="img1" />
-            <h1 class="love-line" id="loveLine" style="display: none;">I love you 💖</h1>
-
-            <div class="rest-message" id="restMsg" style="display: none;">
-                <p>You have an amazing personality, voice, smile, and eyes.</p>
-                <p>I don’t even have the words to describe what you mean to me.</p>
-                <p>I hope you received your gift and liked it.</p>
-                <p>And one more thing—you'll receive another surprise in the evening. Just let me know when you're free 😊</p>
-                <p>You are the kind of perfect person anyone would be lucky to have in their life.</p>
-                <p>I wish we could be together today, but it’s okay—we’ll meet very soon!</p>
-                <p>I love you.</p>
-                <p>I love the way you are.</p>
-                <p>
-                    I'm very lucky to have you and thankful to God for bringing you into my life...
-                    It's a feeling I can’t describe—so special and deep, no words can express it.
-                </p>
-                <p class="last-line">Wait... something special is loading 😍</p>
-
-                <div class="image-animation">
-                    <img src="image1.gif" alt="Animated Image 1" />
-                    <img src="image2.gif" alt="Animated Image 2" />
-                    <img src="image3.gif" alt="Animated Image 3" />
-                </div>
-            </div>
-        </div>
+  <div class="container">
+    <div class="startpage">
+      <p>Hey Sidhant, click the button below!</p>
+      <button id="btn1">Click here</button>
     </div>
 
-    <canvas id="fireworksCanvas"></canvas>
-    <canvas id="balloonCanvas"></canvas>
+    <div class="tareef" style="display: none;">
+        <h1 class="big-title" id="happyLine">🎉 Happy Birthday Sidhant 🎂</h1>
+  <img src="img1.jpg" alt="Happy Birthday Image" id="img1" class="image-display" />
 
-    <audio id="bgMusic" src="music1.mp3" loop></audio>
+  <h1 class="love-line" id="loveLine" style="display: none;">I love you 💖</h1>
+  <img src="img2.jpg" alt="Love Image" id="img2" class="image-display" />
 
-    <script src="script.js"></script>
+      <div class="rest-message" id="restMsg" style="display: none;">
+        <p>You have an amazing personality, voice, smile, and eyes.</p>
+        <p>I don’t even have the words to describe what you mean to me.</p>
+        <p>I hope you received your gift and liked it.</p>
+        <p>And one more thing—you'll receive another surprise in the evening. Just let me know when you're free 😊</p>
+        <p>You are the kind of perfect person anyone would be lucky to have in their life.</p>
+        <p>I wish we could be together today, but it’s okay—we’ll meet very soon!</p>
+        <p>I love you.</p>
+        <p>I love the way you are.</p>
+        <p>I'm very lucky to have you and thankful to God for bringing you into my life... It's a feeling I can’t describe—so special and deep, no words can express it.</p>
+        <p class="last-line">Wait... something special is loading 😍</p>
+      </div>
+    </div>
+
+    <div class="imagepage" style="display: none;">
+      <h2 class="image-heading">Some Memories 💫</h2>
+      <div class="image-animation">
+        <img src="img3.jpg" alt="Memory 1" />
+        <img src="img4.jpg" alt="Memory 2" />
+        <img src="img5.jpg" alt="Memory 3" />
+      </div>
+    </div>
+  </div>
+
+  <div class="finalpage" style="display: none;">
+  <h2 class="final-heading">❤️ From My Heart</h2>
+  <p class="final-message">
+    I really hope you liked everything — every word, every moment, came straight from my heart.  
+    You're truly special, and I’m so grateful to have you in my life.  
+    Happy Birthday once again, Sidhant. 💖
+  </p>
+</div>
+
+  <audio id="bgMusic" src="music1.mp3" loop></audio>
+  <script src="script.js"></script>
 </body>
+
 </html>

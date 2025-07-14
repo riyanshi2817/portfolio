@@ -1,4 +1,4 @@
-/* Reset and base styles */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -7,8 +7,8 @@
 
 html, body {
   height: 100%;
-  overflow: hidden;
   font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
 }
 
 /* Start Page */
@@ -19,7 +19,6 @@ html, body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  width: 100%;
   text-align: center;
   padding: 20px;
 }
@@ -55,7 +54,6 @@ button:hover {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  width: 100%;
   padding: 20px;
   text-align: center;
 }
@@ -69,32 +67,35 @@ button:hover {
   animation: fadeIn 1s ease;
 }
 
-#img1 {
+/* Shared image style for both img1 and img2 */
+.image-display {
   width: 250px;
   margin: 20px auto;
-  display: block;
   border-radius: 15px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
   opacity: 0;
-  transition: opacity 1s ease;
+  transition: opacity 0.8s ease;
+  display: none;
 }
 
-.tareef #img1 {
+.image-display.show {
+  display: block;
   opacity: 1;
 }
 
+/* Message paragraph animation */
 .rest-message {
-  margin-top: 20px;
+  display: none;
 }
 
 .rest-message p {
-  font-size: 1.3rem;
-  color: #222;
+  font-size: 1.2rem;
+  color: #333;
   font-weight: bold;
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.6s ease;
-  margin: 14px 0;
+  margin: 12px 0;
   line-height: 1.6;
 }
 
@@ -103,7 +104,6 @@ button:hover {
   transform: translateY(0);
 }
 
-/* Last Line style */
 .rest-message .last-line {
   font-size: 1rem;
   font-weight: normal;
@@ -111,55 +111,17 @@ button:hover {
   text-align: right;
   margin-top: 30px;
   margin-right: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
 }
 
-/* Animated image section */
-.image-animation {
-  margin-top: 30px;
+.rest-message .last-line.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.image-animation img {
-  width: 100px;
-  margin: 10px;
-  animation: bounce 1s infinite alternate;
-}
-
-/* Animations */
-@keyframes bounce {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Canvas positioning */
-canvas {
-  display: none;
-}
-#fireworksCanvas,
-#balloonCanvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-}
-
+/* Memories Page */
 .imagepage {
   display: none;
   background: linear-gradient(to right, #fbc2eb, #a6c1ee);
@@ -178,8 +140,67 @@ canvas {
   animation: fadeIn 1s ease;
 }
 
+.image-animation {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 .image-animation img {
   width: 120px;
   margin: 10px;
   animation: bounce 1s infinite alternate;
+}
+
+/* Final Page */
+.finalpage {
+  display: none;
+  background: linear-gradient(to right, #ffdde1, #ee9ca7);
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 40px;
+}
+
+.final-heading {
+  font-size: 2.5rem;
+  color: #c2185b;
+  margin-bottom: 20px;
+  animation: fadeIn 1s ease;
+}
+
+.final-message {
+  font-size: 1.4rem;
+  color: #333;
+  line-height: 1.8;
+  max-width: 700px;
+  margin: 0 auto;
+  animation: fadeIn 1.5s ease;
+}
+
+/* Animations */
+@keyframes bounce {
+  from { transform: translateY(0); }
+  to { transform: translateY(-10px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+#img1 {
+  width: 250px;
+  margin: 20px auto;
+  border-radius: 15px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  display: none; /* controlled by JS */
+}
+
+#img1.show {
+  display: block;
+  opacity: 1;
 }
