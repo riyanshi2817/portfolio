@@ -204,3 +204,11 @@ button:hover {
   display: block;
   opacity: 1;
 }
+.memory-video {
+  width: 250px;
+  margin: 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  animation: bounce 1s infinite alternate;
+}
+
