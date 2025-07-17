@@ -30,7 +30,7 @@ function App() {
       </p> */}
 
       <div className="ri">
-        hello
+        react
       </div>
     </>
   )
