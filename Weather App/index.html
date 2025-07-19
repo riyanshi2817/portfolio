@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weather App</title>
+  <link rel="stylesheet" href="style.css" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+   <div class="wrapper">
+    <header>Weather App</header>
+    <div class="input-part">
+      <input type="text" placeholder="Enter city name" required />
+      <button>Get Weather</button>
+      <div class="separator">or</div>
+      <button class="location-btn">Get Device Location</button>
+    </div>
+
+    <div class="weather-part hide">
+        <i class="fa-solid fa-cloud"></i>
+      <div class="temp">__°C</div>
+      <div class="description">---</div>
+      <div class="location">City, Country</div>
+      <div class="details">
+        <div>🌡️ Feels like: <span class="feels-like">--°C</span></div>
+        <div>💧 Humidity: <span class="humidity">--%</span></div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+
+
