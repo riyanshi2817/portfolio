@@ -9,33 +9,52 @@ const feelsLike = document.querySelector(".feels-like");
 const humidity = document.querySelector(".humidity");
 const icon = document.querySelector(".weather-part i");
 
-const api = ;
+const api = "058fcd8fc2a65dbe74cb86086607245a";
 
-getBtn.addEventListener("click", () =>{
-    const city  = input.value.trim();
-    if(city){
-        getWeatherByCity(city);
-    }
+getBtn.addEventListener("click", () => {
+  const city = input.value.trim();
+  if (city) {
+    getWeatherByCity(city);
+  }
 });
 
 locationBtn.addEventListener("click", () => {
-  navigator.geolocation.getCurrentPosition(pos => {
-    const { latitude, longitude } = pos.coords;
-    getWeatherByCoords(latitude, longitude);
-  }, () => {
-    alert("Unable to access your location.");
-  });
+  alert("Location feature is not supported .");
 });
 
 function getWeatherByCity(city) {
-  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`)
+  fetch(`http://api.weatherstack.com/current?access_key=${api}&query=${city}`)
     .then(res => res.json())
-    .then(data => updateUI(data))
-    .catch(() => alert("City not found or network error."));
+    .then(data => {
+      if (data.success === false || data.error) {
+        alert("City not found or API error.");
+        return;
+      }
+      updateUI(data);
+    })
+    .catch(() => alert("Network error or invalid request."));
 }
 
 function updateUI(data) {
-  if (data.cod === "404") {
-    alert("City not found");
-    return;
-  }
+  weatherPart.classList.remove("hide");
+
+  temp.textContent = `${data.current.temperature}°C`;
+  desc.textContent = data.current.weather_descriptions[0];
+  loc.textContent = `${data.location.name}, ${data.location.country}`;
+  feelsLike.textContent = `${data.current.feelslike}°C`;
+  humidity.textContent = `${data.current.humidity}%`;
+
+  const weatherMain = data.current.weather_descriptions[0];
+  const iconMap = {
+    "Cloudy": "fa-cloud",
+    "Sunny": "fa-sun",
+    "Clear": "fa-sun",
+    "Rain": "fa-cloud-showers-heavy",
+    "Snow": "fa-snowflake",
+    "Mist": "fa-smog",
+    "Fog": "fa-smog",
+    "Thunderstorm": "fa-bolt"
+  };
+
+  icon.className = `fa-solid ${iconMap[weatherMain] || "fa-cloud"}`;
+}
