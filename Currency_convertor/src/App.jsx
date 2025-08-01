@@ -25,9 +25,7 @@ function App() {
       return;
     }
 
-    fetch(
-      `https://api.frankfurter.app/latest?amount=${amount}&from=${fromCurrency}&to=${toCurrency}`
-    )
+    fetch(`https://api.frankfurter.app/latest?amount=${amount}&from=${fromCurrency}&to=${toCurrency}`)
       .then((res) => res.json())
       .then((data) => {
         setConverted(data.rates[toCurrency]);
