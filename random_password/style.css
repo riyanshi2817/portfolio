@@ -97,3 +97,25 @@ body {
 .generatebtn .btn:hover {
   background-color: #1e7e34;
 }
+
+body.dark {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark .container {
+  background-color: #1f1f1f;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+body.dark input,
+body.dark .password {
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #666;
+}
+
+body.dark button {
+  background-color: #444;
+  color: white;
+}

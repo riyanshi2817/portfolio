@@ -6,6 +6,7 @@ const includeLetters = document.getElementById("charCheck");
 const includeSymbols = document.getElementById("SymbolCheck");
 const generateBtn = document.querySelector(".btn");
 const copyBtn = document.querySelector(".copyBtn");
+const toggleThemeBtn = document.getElementById("toggleTheme");
 
 const letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const numbers = "0123456789";
@@ -55,4 +56,9 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     generatePassword();
   }
+});
+
+
+toggleThemeBtn.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
 });
