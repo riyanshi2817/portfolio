@@ -7,12 +7,31 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="conatiner">
+    <div class="container">
         <h2>Password Generator</h2>
 
         <div class="generate">
             <input type="text" class="password">
-            
+            <button class="copyBtn">Copy</button>
+        </div>
+
+         <div class="num_char">
+            <input class="limit"  type="range" min="6" max="25">
+            <output class="length"> Length : </output>
+
+            <input  id="numCheck" type="checkbox" name="check">
+            <label for="numCheck" class="label">Numbers</label>
+
+            <input  id="charCheck" type="checkbox" name="check">
+            <label for="charCheck" class="label">Characters</label>
+
+            <input  id="SymbolCheck" type="checkbox" name="check">
+            <label for="SymbolCheck" class="label">Symbols</label>
+
+        </div>
+
+        <div class="generatebtn">
+            <button class="btn">Generate</button>
         </div>
     </div>
 
