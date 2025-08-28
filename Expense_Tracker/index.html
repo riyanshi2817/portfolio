@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" >
+</head>
+
+<body>
+
+    <header>
+        <h1>Expense Dashboard</h1>
+        <div id="profile">[Profile]</div>
+    </header>
+
+    <section id="balance-overview">
+        <h2>Current Balance: ₹5,500</h2>
+        <div class="summary">
+            <div class="income">Income: ₹15,000</div>
+            <div class="expense">Expense: ₹9,500</div>
+        </div>
+    </section>
+
+    <section id="analytics">
+        <h2>Analytics</h2>
+        <div id="pie-chart">[Pie Chart Placeholder]</div>
+        <div id="bar-chart">[Bar/Line Chart Placeholder]</div>
+    </section>
+
+    <section id="transactions">
+        <h2>Recent Transactions</h2>
+        <ul>
+            <li>🛒 Groceries -₹500 (20 Aug)</li>
+            <li>🎬 Movie Night -₹300 (18 Aug)</li>
+            <li>💼 Salary +₹20,000 (15 Aug)</li>
+        </ul>
+    </section>
+
+    <section id="add-transaction">
+        <h2>Add New Transaction</h2>
+        <form>
+            <label>Description:
+                <input type="text" name="description" placeholder="Enter description">
+            </label><br><br>
+            <label>Amount:
+                <input type="number" name="amount" placeholder="Enter amount">
+            </label><br><br>
+            <label>Category:
+                <select name="category">
+                    <option>Food</option>
+                    <option>Travel</option>
+                    <option>Shopping</option>
+                    <option>Other</option>
+                </select>
+            </label><br><br>
+            <label>
+                <input type="radio" name="type" value="income"> Income
+            </label>
+            <label>
+                <input type="radio" name="type" value="expense"> Expense
+            </label><br><br>
+            <button type="submit">Add Transaction</button>
+        </form>
+    </section>
+
+    <footer>
+        <nav>
+            <a href="#">📊 Dashboard</a>
+            <a href="#">➕ Add</a>
+            <a href="#">📜 Transactions</a>
+        </nav>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
