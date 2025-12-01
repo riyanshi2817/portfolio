@@ -1,0 +1,72 @@
+/* src/App.css */
+
+.app-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 42px auto;
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(140, 140, 157, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #5d667b;
+  margin-bottom: 24px;
+}
+
+input[type="text"] {
+  width: 70%;
+  height: 36px;
+  padding: 8px;
+  border: 1px solid #c2b39a;
+  border-radius: 6px;
+  font-size: 16px;
+  outline: none;
+}
+
+button {
+  height: 36px;
+  margin-left: 8px;
+  background: #88ab33;
+  color: #fff;
+  padding: 0 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #729a18;
+}
+
+ul {
+  margin-top: 24px;
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  background: #fff;
+  margin-bottom: 12px;
+  padding: 12px 16px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 18px;
+  box-shadow: 0 1px 3px rgba(140, 140, 157, 0.09);
+}
+
+li span {
+  flex: 1;
+  cursor: pointer;
+}
+
+li.completed span {
+  text-decoration: line-through;
+  color: #bdc3c7;
+}
