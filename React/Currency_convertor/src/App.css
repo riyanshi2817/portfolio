@@ -1,0 +1,68 @@
+/* App.css */
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #74ebd5, #acb6e5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+h3 {
+  margin-top: 20px;
+  color: #2d2d2d;
+}
+
+input,
+select,
+button {
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+input {
+  width: 100px;
+  text-align: center;
+}
+
+select {
+  width: 120px;
+  background-color: #fff;
+}
+
+button {
+  margin-top: 20px;
+  background-color: #4a90e2;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background-color: #357abd;
+}
+
+.container {
+  background: #ffffffcc;
+  padding: 30px 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.inputRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}

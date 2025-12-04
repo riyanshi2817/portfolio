@@ -1,0 +1,25 @@
+{
+  "totalRevenue": 1250000,
+  "totalOrders": 3450,
+  "avgOrderValue": 362.32,
+  "conversionRate": 12.8,
+  "monthlySales": [
+    { "month": "Jan", "revenue": 95000, "orders": 280, "target": 100000 },
+    { "month": "Feb", "revenue": 108000, "orders": 315, "target": 100000 },
+    { "month": "Mar", "revenue": 125000, "orders": 390, "target": 120000 },
+    { "month": "Apr", "revenue": 140000, "orders": 425, "target": 130000 },
+    { "month": "May", "revenue": 155000, "orders": 480, "target": 145000 },
+    { "month": "Jun", "revenue": 172000, "orders": 520, "target": 160000 }
+  ],
+  "topProducts": [
+    { "name": "Product A", "revenue": 320000, "units": 850 },
+    { "name": "Product B", "revenue": 280000, "units": 720 },
+    { "name": "Product C", "revenue": 245000, "units": 650 }
+  ],
+  "salesByRegion": [
+    { "region": "North", "revenue": 425000, "percentage": 34 },
+    { "region": "South", "revenue": 375000, "percentage": 30 },
+    { "region": "East", "revenue": 275000, "percentage": 22 },
+    { "region": "West", "revenue": 175000, "percentage": 14 }
+  ]
+}
