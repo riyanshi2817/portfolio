@@ -1,0 +1,11 @@
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: linear-gradient(#3c009d, #0000aa);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
