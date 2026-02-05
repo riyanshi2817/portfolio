@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine?</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      width: 320px;
+    }
+
+    h1 {
+      margin-bottom: 25px;
+      color: #ff4d6d;
+    }
+
+    p {
+      font-size: 18px;
+      color: #444;
+      min-height: 24px;
+    }
+
+    .buttons {
+      margin-top: 30px;
+      position: relative;
+      height: 120px;
+    }
+
+    button {
+      padding: 12px 28px;
+      font-size: 16px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #yesBtn {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    #yesBtn:hover {
+      transform: scale(1.1);
+    }
+
+    #noBtn {
+      background: #ccc;
+      color: #333;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-top: 15px;
+    }
+
+    .love {
+      font-size: 40px;
+      color: #ff1e56;
+      animation: pop 1s infinite alternate;
+    }
+
+    @keyframes pop {
+      from { transform: scale(1); }
+      to { transform: scale(1.1); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card" id="card">
+    <h1>Will you be my Valentine? 💖</h1>
+    <p id="message"></p>
+
+    <div class="buttons">
+      <button id="yesBtn">Yes 😍</button>
+      <button id="noBtn">No 🙄</button>
+    </div>
+  </div>
+
+  <script>
+  const noBtn = document.getElementById("noBtn");
+  const yesBtn = document.getElementById("yesBtn");
+  const message = document.getElementById("message");
+  const card = document.getElementById("card");
+
+  let noClicks = 0;
+  const maxClickable = 3; 
+
+  const noMessages = [
+    "Think again 🤔",
+    "Soch lo plz 😒",
+    "Ek aur baar soch 🤨",
+    "No is no longer allowed 😏",
+    "Bas YES bol do na 🥺❤️"
+  ];
+
+  noBtn.addEventListener("click", (e) => {
+    if (noClicks < maxClickable) {
+      message.textContent = noMessages[noClicks];
+      noClicks++;
+    } else {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  });
+
+  noBtn.addEventListener("mouseover", () => {
+    if (noClicks >= maxClickable) {
+      const x = Math.random() * (window.innerWidth - 120);
+      const y = Math.random() * (window.innerHeight - 120);
+
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    }
+  });
+
+  yesBtn.addEventListener("click", () => {
+    card.innerHTML = `
+      <h1 class="love">I LOVE YOU ❤️</h1>
+      <p>Best choice ever 😘</p>
+    `;
+  });
+</script>
+
+
+
+</body>
+</html>
