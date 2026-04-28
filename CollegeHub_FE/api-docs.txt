@@ -1,0 +1,707 @@
+================================================================================
+  COLLEGE COMMUNITY HUB — BACKEND API DOCUMENTATION
+  Base URL : http://localhost:5000/api
+  Auth     : httpOnly cookie named "token" (JWT, 7-day expiry)
+             Set automatically on login/register.
+             Send every request with  { withCredentials: true }  (axios/fetch).
+  Roles    : STUDENT | FACULTY | ADMIN
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+  SECTION 1 — AUTH  (/api/auth)
+────────────────────────────────────────────────────────────────────────────────
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ POST /api/auth/register                                                     │
+│ Access : Public                                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Request Body (JSON):                                                        │
+│   email    : string  — required, must be unique                             │
+│   password : string  — required, will be bcrypt-hashed                     │
+│   role     : string  — required, one of: "STUDENT" | "FACULTY" | "ADMIN"   │
+│                                                                             │
+│ Action:                                                                     │
+│   Creates user, hashes password, signs JWT, sets httpOnly cookie.          │
+│   Auto-logs the user in (no separate login needed after register).         │
+│                                                                             │
+│ Success 201:                                                                │
+│   { message: "User created",                                                │
+│     user: { id, email, role } }                                             │
+│                                                                             │
+│ Errors:                                                                     │
+│   400 — { message: "User already exists" }                                 │
+│   500 — { error: "..." }                                                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ POST /api/auth/login                                                        │
+│ Access : Public                                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Request Body (JSON):                                                        │
+│   email    : string  — required                                             │
+│   password : string  — required                                             │
+│                                                                             │
+│ Action:                                                                     │
+│   Validates credentials, signs JWT, sets httpOnly cookie.                  │
+│                                                                             │
+│ Success 200:                                                                │
+│   { message: "Logged in",                                                   │
+│     user: { id, email, role } }                                             │
+│                                                                             │
+│ Errors:                                                                     │
+│   400 — { message: "Invalid credentials" }                                 │
+│   500 — { error: "..." }                                                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ GET /api/auth/me                                                            │
+│ Access : STUDENT | FACULTY | ADMIN  (requires cookie)                      │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Request Body : none                                                         │
+│                                                                             │
+│ Action:                                                                     │
+│   Reads JWT from cookie and returns the current user (no password).        │
+│   Use on app startup to restore session.                                   │
+│                                                                             │
+│ Success 200:                                                                │
+│   { user: { _id, email, role, createdAt, updatedAt } }                     │
+│                                                                             │
+│ Errors:                                                                     │
+│   401 — { message: "Not authorized" }                                      │
+│   404 — { message: "User not found" }                                      │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ POST /api/auth/logout                                                       │
+│ Access : STUDENT | FACULTY | ADMIN  (requires cookie)                      │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Request Body : none                                                         │
+│                                                                             │
+│ Action:                                                                     │
+│   Clears the "token" httpOnly cookie.                                      │
+│                                                                             │
+│ Success 200:                                                                │
+│   { message: "Logged out" }                                                 │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────
+  SECTION 2 — STUDENT PROFILE  (/api/profile)
+────────────────────────────────────────────────────────────────────────────────
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ POST /api/profile                                                           │
+│ Access : STUDENT only                                                       │
+│ Note   : Can only be called ONCE per user (one profile per account).       │
+│          Also auto-creates the AcademicGroup if it doesn't exist yet.      │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Request Body (JSON):                                                        │
+│   branch        : string   — required  (e.g. "CSE", "ECE")                 │
+│   year          : number   — required  (1 – 4)                             │
+│   section       : string   — required  (single uppercase letter, e.g. "A") │
+│   rollNumber    : string   — required  (e.g. "22CS001")                    │
+│   skills        : string[] — optional  (e.g. ["React","Node.js"])          │
+│   interests     : string[] — optional  (e.g. ["AI","Robotics"])            │
+│   resumeLink    : string   — optional  (must be https://drive.google.com/…)│
+│   portfolioLink : string   — optional  (must be https://drive.google.com/…)│
+│                                                                             │
+│ Action:                                                                     │
+│   Creates StudentProfile tied to the logged-in user.                       │
+│   Derives group name as "<BRANCH>-<year>-<SECTION>" (e.g. "CSE-2-A").     │
+│   Upserts AcademicGroup (safe to call even if group already exists).       │
+│                                                                             │
+│ Success 201:                                                                │
+│   { message: "Profile created", profile: { ...profileFields } }            │
+│                                                                             │
+│ Errors:                                                                     │
+│   400 — { message: "Profile already exists" }                              │
+│   400 — { error: "Validation error message" }  (bad year/section/URLs)    │
+│   401 — Not authorized                                                     │
+│   403 — Access denied (non-student)                                        │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ GET /api/profile/me                                                         │
+│ Access : STUDENT only                                                       │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Request Params : none                                                       │
+│                                                                             │
+│ Action:                                                                     │
+│   Returns the logged-in student's own profile.                             │
+│   Populates userId with { email, role }.                                   │
+│                                                                             │
+│ Success 200:                                                                │
+│   { profile: {                                                              │
+│       _id, userId: { email, role }, branch, year, section,                 │
+│       rollNumber, skills[], interests[],                                   │
+│       resumeLink, portfolioLink, isActive,                                 │
+│       createdAt, updatedAt                                                  │
+│   } }                                                                      │
+│                                                                             │
+│ Errors:                                                                     │
+│   404 — { message: "Profile not found. Please create one." }               │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ PUT /api/profile                                                            │
+│ Access : STUDENT only                                                       │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Request Body (JSON) — all fields optional, send only what changes:         │
+│   branch        : string                                                    │
+│   year          : number  (1–4)                                             │
+│   section       : string  (single uppercase letter)                        │
+│   rollNumber    : string                                                    │
+│   skills        : string[]                                                  │
+│   interests     : string[]                                                  │
+│   resumeLink    : string  (Google Drive URL or omit to clear)              │
+│   portfolioLink : string  (Google Drive URL or omit to clear)              │
+│                                                                             │
+│ Action:                                                                     │
+│   Updates only the fields provided. Runs Mongoose validators.              │
+│   Ownership enforced — can only update own profile.                        │
+│                                                                             │
+│ Success 200:                                                                │
+│   { message: "Profile updated", profile: { ...updatedFields } }            │
+│                                                                             │
+│ Errors:                                                                     │
+│   400 — { error: "Validation error" }                                      │
+│   404 — { message: "Profile not found" }                                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ GET /api/profile/view/:id                                                   │
+│ Access : FACULTY | ADMIN                                                    │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ URL Params:                                                                 │
+│   id : string — MongoDB _id of the StudentProfile document                 │
+│                                                                             │
+│ Action:                                                                     │
+│   Returns any student's full profile. Populates userId.                    │
+│                                                                             │
+│ Success 200:                                                                │
+│   { profile: { ...allFields, userId: { email, role } } }                   │
+│                                                                             │
+│ Errors:                                                                     │
+│   404 — { message: "Profile not found" }                                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ GET /api/profile/filter                                                     │
+│ Access : FACULTY | ADMIN                                                    │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Query Params (all optional):                                                │
+│   year    : number  — filter by year (e.g. ?year=2)                        │
+│   section : string  — filter by section (e.g. ?section=A)                 │
+│   branch  : string  — partial match, case-insensitive (e.g. ?branch=cse)  │
+│                                                                             │
+│ Action:                                                                     │
+│   Returns all active student profiles matching the filters.                │
+│   Sorted by year → section → rollNumber.                                   │
+│                                                                             │
+│ Success 200:                                                                │
+│   { count: number, profiles: [ { ...profile, userId: {email,role} } ] }    │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────
+  SECTION 3 — ACADEMIC GROUPS  (/api/groups)
+────────────────────────────────────────────────────────────────────────────────
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ GET /api/groups/my                                                          │
+│ Access : STUDENT only                                                       │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Request Params : none                                                       │
+│                                                                             │
+│ Action:                                                                     │
+│   Resolves the logged-in student's AcademicGroup via their profile.        │
+│   Use this to get the groupId needed for chat and threads.                 │
+│                                                                             │
+│ Success 200:                                                                │
+│   { group: { _id, name, branch, year, section, isActive } }                │
+│                                                                             │
+│ Errors:                                                                     │
+│   404 — { message: "No group found. Create a profile first." }             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ GET /api/groups                                                             │
+│ Access : ADMIN | FACULTY                                                    │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Query Params (all optional):                                                │
+│   branch  : string  (exact, uppercase — e.g. ?branch=CSE)                 │
+│   year    : number  (e.g. ?year=2)                                         │
+│   section : string  (e.g. ?section=A)                                      │
+│                                                                             │
+│ Action:                                                                     │
+│   Lists all active groups, optionally filtered. Sorted branch→year→section.│
+│                                                                             │
+│ Success 200:                                                                │
+│   { count: number, groups: [ { _id, name, branch, year, section } ] }      │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ GET /api/groups/:groupId/members                                            │
+│ Access : ADMIN | FACULTY                                                    │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ URL Params:                                                                 │
+│   groupId : string — MongoDB _id of AcademicGroup                         │
+│                                                                             │
+│ Action:                                                                     │
+│   Dynamically resolves all active students in the group by matching        │
+│   branch + year + section (members are NOT stored in the group doc).       │
+│                                                                             │
+│ Success 200:                                                                │
+│   { groupName, count, members: [ { ...profile, userId:{email,role} } ] }   │
+│                                                                             │
+│ Errors:                                                                     │
+│   404 — { message: "Group not found" }                                     │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────
+  SECTION 4 — GROUP CHAT — REST  (/api/groups & /api/chat)
+────────────────────────────────────────────────────────────────────────────────
+
+NOTE: Real-time chat is handled via Socket.IO (Section 6).
+      These REST endpoints are an alternative or fallback.
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ POST /api/groups/:groupId/chat                                              │
+│ Access : STUDENT only (must be a member of the group)                      │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ URL Params:                                                                 │
+│   groupId : string — MongoDB _id of AcademicGroup                         │
+│                                                                             │
+│ Request Body (JSON):                                                        │
+│   message : string — required, non-empty                                   │
+│                                                                             │
+│ Action:                                                                     │
+│   Saves message to DB. Does NOT broadcast via socket.                      │
+│                                                                             │
+│ Success 201:                                                                │
+│   { message: "Message sent",                                                │
+│     data: { _id, groupId, sender:{_id,email,role},                         │
+│             message, isEdited, createdAt, updatedAt } }                     │
+│                                                                             │
+│ Errors:                                                                     │
+│   400 — { message: "Message cannot be empty" }                             │
+│   403 — { message: "You are not a member of this group" }                  │
+│   404 — { message: "Group not found" }                                     │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ GET /api/groups/:groupId/chat                                               │
+│ Access : STUDENT (own group only) | FACULTY | ADMIN                        │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ URL Params:                                                                 │
+│   groupId : string — MongoDB _id of AcademicGroup                         │
+│                                                                             │
+│ Query Params (optional):                                                    │
+│   page  : number — default 1                                                │
+│   limit : number — default 50, max 100                                     │
+│                                                                             │
+│ Action:                                                                     │
+│   Returns paginated messages sorted oldest → newest.                       │
+│   Populates sender with { email, role }.                                   │
+│                                                                             │
+│ Success 200:                                                                │
+│   { total, page, limit,                                                     │
+│     messages: [ { _id, groupId, sender:{email,role},                       │
+│                   message, isEdited, createdAt, updatedAt } ] }             │
+│                                                                             │
+│ Errors:                                                                     │
+│   403 — { message: "You are not a member of this group" }  (student only)  │
+│   404 — { message: "Group not found" }                                     │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ PUT /api/chat/:messageId                                                    │
+│ Access : STUDENT only (own messages only)                                  │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ URL Params:                                                                 │
+│   messageId : string — MongoDB _id of GroupChatMessage                    │
+│                                                                             │
+│ Request Body (JSON):                                                        │
+│   message : string — required, new text                                    │
+│                                                                             │
+│ Action:                                                                     │
+│   Updates message text and sets isEdited = true.                           │
+│   Ownership enforced (sender must match logged-in user).                   │
+│                                                                             │
+│ Success 200:                                                                │
+│   { message: "Message updated",                                             │
+│     data: { ...messageFields, isEdited: true } }                           │
+│                                                                             │
+│ Errors:                                                                     │
+│   403 — { message: "You can only edit your own messages" }                 │
+│   404 — { message: "Message not found" }                                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ DELETE /api/chat/:messageId                                                 │
+│ Access : STUDENT only (own messages only)                                  │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ URL Params:                                                                 │
+│   messageId : string — MongoDB _id of GroupChatMessage                    │
+│                                                                             │
+│ Action:                                                                     │
+│   Permanently deletes the message.                                         │
+│   Ownership enforced.                                                       │
+│                                                                             │
+│ Success 200:                                                                │
+│   { message: "Message deleted" }                                            │
+│                                                                             │
+│ Errors:                                                                     │
+│   403 — { message: "You can only delete your own messages" }               │
+│   404 — { message: "Message not found" }                                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────
+  SECTION 5 — DISCUSSION THREADS  (/api/threads)
+────────────────────────────────────────────────────────────────────────────────
+
+NOTE: "Member" check — students must belong to the group; faculty/admin bypass.
+      All endpoints require the httpOnly cookie.
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ POST /api/threads/:groupId                                                  │
+│ Access : STUDENT only (must be member of the group)                        │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ URL Params:                                                                 │
+│   groupId : string — MongoDB _id of AcademicGroup                         │
+│                                                                             │
+│ Request Body (JSON):                                                        │
+│   title   : string — required                                               │
+│   content : string — required                                               │
+│   subject : string — optional, defaults to "General"                       │
+│                                                                             │
+│ Action:                                                                     │
+│   Creates a new discussion/doubt thread in the group.                      │
+│                                                                             │
+│ Success 201:                                                                │
+│   { message: "Thread created",                                              │
+│     thread: { _id, groupId, author:{email,role}, title, content,           │
+│               subject, isResolved, resolvedBy, createdAt, updatedAt } }    │
+│                                                                             │
+│ Errors:                                                                     │
+│   400 — { message: "Title and content are required" }                      │
+│   403 — { message: "You are not a member of this group" }                  │
+│   404 — { message: "Group not found" }                                     │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ GET /api/threads/:groupId                                                   │
+│ Access : STUDENT | FACULTY | ADMIN (must be member)                        │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ URL Params:                                                                 │
+│   groupId : string                                                          │
+│                                                                             │
+│ Query Params (all optional):                                                │
+│   subject  : string  — partial match, case-insensitive                     │
+│   resolved : boolean — "true" or "false"                                   │
+│   page     : number  — default 1                                            │
+│   limit    : number  — default 20, max 100                                 │
+│                                                                             │
+│ Action:                                                                     │
+│   Returns paginated list of threads, newest first.                         │
+│   Populates author with { email, role }.                                   │
+│                                                                             │
+│ Success 200:                                                                │
+│   { total, page, limit,                                                     │
+│     threads: [ { _id, title, content, subject, isResolved,                 │
+│                   author:{email,role}, createdAt } ] }                      │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ GET /api/threads/thread/:threadId                                           │
+│ Access : STUDENT | FACULTY | ADMIN (must be member of thread's group)      │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ URL Params:                                                                 │
+│   threadId : string — MongoDB _id of DiscussionThread                     │
+│                                                                             │
+│ Action:                                                                     │
+│   Returns the thread + all its replies sorted oldest → newest.             │
+│   Populates author and resolvedBy.                                         │
+│                                                                             │
+│ Success 200:                                                                │
+│   { thread: { _id, title, content, subject, isResolved,                    │
+│               author:{email,role}, resolvedBy:{email,role}, ... },         │
+│     replies: [ { _id, threadId, author:{email,role},                       │
+│                   content, isAccepted, createdAt } ] }                     │
+│                                                                             │
+│ Errors:                                                                     │
+│   403 — Not a member                                                       │
+│   404 — Thread not found                                                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ POST /api/threads/thread/:threadId/reply                                    │
+│ Access : STUDENT | FACULTY | ADMIN (must be member)                        │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ URL Params:                                                                 │
+│   threadId : string                                                         │
+│                                                                             │
+│ Request Body (JSON):                                                        │
+│   content : string — required, non-empty                                   │
+│                                                                             │
+│ Action:                                                                     │
+│   Adds a reply to the thread.                                               │
+│                                                                             │
+│ Success 201:                                                                │
+│   { message: "Reply added",                                                 │
+│     reply: { _id, threadId, author:{email,role},                           │
+│              content, isAccepted, createdAt } }                             │
+│                                                                             │
+│ Errors:                                                                     │
+│   400 — { message: "Reply content is required" }                           │
+│   403 — Not a member                                                       │
+│   404 — Thread not found                                                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ PUT /api/threads/thread/:threadId/resolve                                   │
+│ Access : STUDENT (thread author only) | FACULTY | ADMIN                    │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ URL Params:                                                                 │
+│   threadId : string                                                         │
+│                                                                             │
+│ Request Body : none                                                         │
+│                                                                             │
+│ Action:                                                                     │
+│   Sets isResolved = true and resolvedBy = current user.                    │
+│                                                                             │
+│ Success 200:                                                                │
+│   { message: "Thread marked as resolved",                                   │
+│     thread: { ...thread, isResolved: true, resolvedBy:{email,role} } }     │
+│                                                                             │
+│ Errors:                                                                     │
+│   403 — { message: "Only the thread author or faculty/admin can resolve" } │
+│   404 — Thread not found                                                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ PUT /api/threads/reply/:replyId/accept                                      │
+│ Access : STUDENT (thread author only)                                       │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ URL Params:                                                                 │
+│   replyId : string — MongoDB _id of DiscussionReply                       │
+│                                                                             │
+│ Request Body : none                                                         │
+│                                                                             │
+│ Action:                                                                     │
+│   Sets isAccepted = true on this reply.                                    │
+│   Automatically un-accepts any previously accepted reply on the same thread│
+│   (only one accepted reply per thread at a time).                          │
+│   Only the original thread author can call this.                           │
+│                                                                             │
+│ Success 200:                                                                │
+│   { message: "Reply accepted",                                              │
+│     reply: { ...reply, isAccepted: true, author:{email,role} } }           │
+│                                                                             │
+│ Errors:                                                                     │
+│   403 — { message: "Only the thread author can accept a reply" }           │
+│   404 — Reply or thread not found                                          │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────
+  SECTION 6 — SOCKET.IO  (ws://localhost:5000)
+────────────────────────────────────────────────────────────────────────────────
+
+Connection:
+  const socket = io("http://localhost:5000", { withCredentials: true });
+  Auth       : reads "token" httpOnly cookie automatically on handshake.
+  On failure : "connect_error" event is emitted.
+
+────────────────────────────────────────────
+  CLIENT → SERVER EVENTS
+────────────────────────────────────────────
+
+  joinGroup
+  ─────────
+  Payload  : { groupId: string }
+  Action   : Verifies membership. Joins the socket room for that groupId.
+             Students: must belong to the group.
+             Faculty/Admin: can join any group.
+  Response : emits "joinedGroup" back to the caller on success,
+             or "error" on failure.
+
+  sendMessage
+  ───────────
+  Payload  : { groupId: string, message: string }
+  Access   : STUDENT only, must be member
+  Action   : Saves message to DB, broadcasts "receiveMessage" to
+             ALL sockets in the room (including sender).
+  On error : emits "error" back to caller only.
+
+  editMessage
+  ───────────
+  Payload  : { messageId: string, message: string }
+  Access   : STUDENT only, own messages only
+  Action   : Updates message text and isEdited = true in DB.
+             Broadcasts "messageEdited" to entire room.
+  On error : emits "error" back to caller only.
+
+  deleteMessage
+  ─────────────
+  Payload  : { messageId: string }
+  Access   : STUDENT only, own messages only
+  Action   : Deletes from DB. Broadcasts "messageDeleted" to entire room.
+  On error : emits "error" back to caller only.
+
+────────────────────────────────────────────
+  SERVER → CLIENT EVENTS
+────────────────────────────────────────────
+
+  joinedGroup
+  ─────────────────────────────────────────
+  Emitted to : caller only
+  Payload    : { groupId: string, groupName: string }
+
+  receiveMessage
+  ─────────────────────────────────────────
+  Emitted to : entire group room
+  Payload    : { _id, groupId, sender:{_id,email,role},
+                 message, isEdited, createdAt, updatedAt }
+
+  messageEdited
+  ─────────────────────────────────────────
+  Emitted to : entire group room
+  Payload    : { _id, groupId, sender:{_id,email,role},
+                 message, isEdited:true, updatedAt, ... }
+
+  messageDeleted
+  ─────────────────────────────────────────
+  Emitted to : entire group room
+  Payload    : { messageId: string }
+
+  error
+  ─────────────────────────────────────────
+  Emitted to : caller only
+  Payload    : { message: string }
+
+
+────────────────────────────────────────────────────────────────────────────────
+  SECTION 7 — COMMON ERROR SHAPES
+────────────────────────────────────────────────────────────────────────────────
+
+  401  { message: "Not authorized" }          — missing or expired cookie
+  401  { message: "Token invalid" }           — tampered JWT
+  403  { message: "Access denied" }           — wrong role for endpoint
+  403  { message: "You are not a member…" }   — student in wrong group
+  404  { message: "…not found" }              — resource doesn't exist
+  400  { message: "…" }                       — validation / business rule
+  500  { error: "…" }                         — unexpected server error
+
+
+────────────────────────────────────────────────────────────────────────────────
+  SECTION 8 — DATA MODELS (QUICK REFERENCE)
+────────────────────────────────────────────────────────────────────────────────
+
+  User
+    _id       ObjectId
+    email     String (unique)
+    password  String (hashed)
+    role      "STUDENT" | "FACULTY" | "ADMIN"
+    createdAt, updatedAt
+
+  StudentProfile
+    _id           ObjectId
+    userId        ObjectId → User
+    branch        String
+    year          Number (1–4)
+    section       String (A–Z single char)
+    rollNumber    String
+    skills        String[]
+    interests     String[]
+    resumeLink    String | null  (Google Drive URL)
+    portfolioLink String | null  (Google Drive URL)
+    isActive      Boolean (default true)
+    createdAt, updatedAt
+
+  AcademicGroup
+    _id      ObjectId
+    name     String  (e.g. "CSE-2-A")
+    branch   String
+    year     Number
+    section  String
+    isActive Boolean
+    createdAt, updatedAt
+    NOTE: members are NOT stored here; resolved dynamically via StudentProfile
+
+  GroupChatMessage
+    _id       ObjectId
+    groupId   ObjectId → AcademicGroup
+    sender    ObjectId → User
+    message   String
+    isEdited  Boolean (default false)
+    createdAt, updatedAt
+
+  DiscussionThread
+    _id        ObjectId
+    groupId    ObjectId → AcademicGroup
+    author     ObjectId → User
+    title      String
+    content    String
+    subject    String (default "General")
+    isResolved Boolean (default false)
+    resolvedBy ObjectId → User | null
+    createdAt, updatedAt
+
+  DiscussionReply
+    _id        ObjectId
+    threadId   ObjectId → DiscussionThread
+    author     ObjectId → User
+    content    String
+    isAccepted Boolean (default false)
+    createdAt, updatedAt
+
+
+────────────────────────────────────────────────────────────────────────────────
+  SECTION 9 — TYPICAL FRONTEND FLOW
+────────────────────────────────────────────────────────────────────────────────
+
+  1. App startup
+       GET /api/auth/me  → restore session (set user state)
+       If 401 → redirect to /login
+
+  2. Register / Login
+       POST /api/auth/register  or  POST /api/auth/login
+       → save user { id, email, role } in state
+       → if STUDENT redirect to /profile, else to /dashboard
+
+  3. Student — create profile (first time only)
+       POST /api/profile  with all required fields
+       → on success profile exists, group auto-created
+
+  4. Student — get own group
+       GET /api/groups/my  → store group._id for all subsequent calls
+
+  5. Student — real-time chat
+       Connect socket  →  emit joinGroup { groupId }
+       Listen receiveMessage / messageEdited / messageDeleted
+       On send: emit sendMessage { groupId, message }
+       On edit: emit editMessage { messageId, message }
+       On delete: emit deleteMessage { messageId }
+       Load history via: GET /api/groups/:groupId/chat?page=1&limit=50
+
+  6. Student — discussion threads
+       List  : GET  /api/threads/:groupId
+       Create: POST /api/threads/:groupId  { title, content, subject? }
+       View  : GET  /api/threads/thread/:threadId
+       Reply : POST /api/threads/thread/:threadId/reply  { content }
+       Resolve: PUT /api/threads/thread/:threadId/resolve
+       Accept reply: PUT /api/threads/reply/:replyId/accept
+
+  7. Faculty / Admin — browse groups & members
+       GET /api/groups?branch=CSE&year=2
+       GET /api/groups/:groupId/members
+       GET /api/profile/filter?year=2&section=A
+       GET /api/profile/view/:profileId
+
+  8. Logout
+       POST /api/auth/logout  → clear user state, redirect to /login
+
+================================================================================
